@@ -1,0 +1,99 @@
+### TC-UI-06 ORDENAÇÃO DE PRODUTOS (PREÇO: MENOR PARA MAIOR)
+
+**Description**
+Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do menor para o maior.
+
+**Pre conditions:**
+- O usuário deve estar logado na aplicação Sauce Demo com credenciais válidas.
+- A página de listagem de produtos deve estar visível.
+
+**Expected results:**
+
+Dado que o usuário está na página de produtos
+Quando o usuário seleciona a ordenação "Price (low to high)" no menu suspenso
+Então a lista de produtos é atualizada exibindo o item de menor valor primeiro e os demais em ordem crescente de preço
+
+**Status:** Aprovado ✅
+
+**Evidence:** https://jam.dev/c/0f522376-3fb9-4b0c-813d-adac28135990
+
+**Environment:** Chrome - Opera
+
+**Device:** Windows 11
+
+---
+
+### TC-UI-07 ORDENAÇÃO DE PRODUTOS (PREÇO: MAIOR PARA MENOR)
+
+**Description**
+Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do maior para o menor.
+
+**Pre conditions:**
+- O usuário deve estar logado na aplicação Sauce Demo com credenciais válidas.
+- A página de listagem de produtos deve estar visível.
+
+**Expected results:**
+
+Dado que o usuário está na página de produtos
+Quando o usuário seleciona a ordenação "Price (high to low)" no menu suspenso
+Então a lista de produtos é atualizada exibindo o item de maior valor primeiro e os demais em ordem decrescente de preço
+
+**Status:** Aprovado ✅
+
+**Evidence:** https://jam.dev/c/5e8957e7-3d2e-47d5-9369-9f9d99eb1ba5
+
+**Environment:** Chrome - Opera
+
+**Device:** Windows 11
+
+---
+
+### TC-UI-08 ORDENAÇÃO DE PRODUTOS (NOME: A a Z)
+
+**Description**
+Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de A a Z.
+
+**Pre conditions:**
+- O usuário deve estar logado na aplicação Sauce Demo com credenciais válidas.
+- A página de listagem de produtos deve estar visível.
+
+**Expected results:**
+
+Dado que o usuário está na página de produtos
+Quando o usuário seleciona a ordenação "Name (A to Z)" no menu suspenso
+Então a lista de produtos é atualizada exibindo os itens em ordem alfabética crescente de nome
+
+**Status:** Aprovado ✅
+
+**Evidence:** https://jam.dev/c/4c18f27f-38df-4c0f-8432-119fb138b94b
+
+**Environment:** Chrome - Opera
+
+**Device:** Windows 11
+
+---
+
+### TC-UI-09 ORDENAÇÃO DE PRODUTOS (NOME: Z a A)
+
+**Description**
+Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de Z a A.
+
+**Pre conditions:**
+- O usuário deve estar logado na aplicação Sauce Demo com credenciais válidas.
+- A página de listagem de produtos deve estar visível.
+
+**Expected results:**
+
+Dado que o usuário está na página de produtos
+Quando o usuário seleciona a ordenação "Name (Z to A)" no menu suspenso
+Então a lista de produtos é atualizada exibindo os itens em ordem alfabética decrescente de nome
+
+**Status:** Aprovado ✅
+
+**Evidence:** https://jam.dev/c/9f23f5d8-fd26-4c12-8f0e-b76f0a4a3e8f
+
+**Environment:** Chrome - Opera
+
+**Device:** Windows 11
+
+---
