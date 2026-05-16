@@ -15,7 +15,12 @@ Então a lista de produtos é atualizada exibindo o item de menor valor primeiro
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-07.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/103ed010-1473-435c-9ced-945f7a1a1e86
+
+
 
 **Environment:** Chrome - Opera
 
@@ -40,7 +45,12 @@ Então a lista de produtos é atualizada exibindo o item de maior valor primeiro
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-08.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/e32574d0-40cd-4047-95a2-7fef0be7f9a4
+
+
 
 **Environment:** Chrome - Opera
 
@@ -65,7 +75,12 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-09.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/e1acba77-5f52-4b23-9a4a-acc8db24fea8
+
+
 
 **Environment:** Chrome - Opera
 
@@ -90,7 +105,12 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-10.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/aefb170b-19ed-440e-942d-f4112d182d8d
+
+
 
 **Environment:** Chrome - Opera
 
