@@ -26,7 +26,7 @@ Priority: Medium
 
 Status: Open 🚨
 
-Evidence: https://jam.dev/c/cf7a5589-1850-45c0-aad5-229f1a17e067
+Evidence: https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-12.mp4
 
 Environment: Chrome - Opera
 
