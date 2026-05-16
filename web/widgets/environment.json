@@ -1,1 +1,1 @@
-[]
+[{"values":["Be_Talent_TestTec_Web-API"],"name":"Projeto"},{"values":["Web (E2E)"],"name":"Camada"},{"values":["Playwright + Allure"],"name":"Ferramenta"},{"values":["https://www.saucedemo.com/"],"name":"Base.URL"},{"values":["Chromium (Desktop)"],"name":"Browser"},{"values":["20"],"name":"Node.Version"},{"values":["1.60.x"],"name":"Playwright.Version"},{"values":["allure-playwright@3.x"],"name":"Allure.Reporter"},{"values":["Ubuntu (GitHub Actions runner)"],"name":"SO"}]
