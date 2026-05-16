@@ -16,7 +16,7 @@ Então a página de listagem de produtos carrega com sucesso sem erros
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/0f8ab58c-63cd-489a-8712-d170691b7466
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-01.mp4
 
 **Environment:** Chrome - Opera
 
@@ -41,7 +41,7 @@ Então uma mensagem de erro indicando que o usuário está bloqueado é exibida 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/3855d75d-5f3d-4cc8-90a4-8a5dff375f7c
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-02.mp4
 
 **Environment:** Chrome - Opera
 
@@ -70,7 +70,7 @@ Então uma mensagem de erro "Epic sadface: Password is required" é exibida na t
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/9650c1d3-129f-4599-8ab6-38ec58d9b314
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-03.mp4
 
 **Environment:** Chrome - Opera
 
@@ -95,7 +95,7 @@ Então uma mensagem de erro "Epic sadface: Username and password do not match an
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/0d8723fe-80b3-462c-8026-4f406ddea20b
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-04.mp4
 
 **Environment:** Chrome - Opera
 
@@ -121,14 +121,14 @@ Então uma mensagem de erro "Epic sadface: Username and password do not match an
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/0031d50a-d91c-492e-b839-9fc1682578d2
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-05.mp4
 **Environment:** Chrome - Opera
 
 **Device:** Windows 11
 
 ---
 
-### TC-UI-15 LOGOUT DA APLICAÇÃO
+### TC-UI-06 LOGOUT DA APLICAÇÃO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de encerramento de sessão (logout) da aplicação Sauce Demo.
@@ -146,7 +146,7 @@ Então o usuário é redirecionado para a página de login com sucesso sem erros
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/66748214-aeed-4d3f-94c4-95d14ee3d726
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-06.mp4
 
 **Environment:** Chrome - Opera
 
