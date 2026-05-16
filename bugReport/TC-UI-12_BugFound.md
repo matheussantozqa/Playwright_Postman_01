@@ -11,9 +11,13 @@ O carrinho de compras deve estar vazio.
 **Expected results:**
 
 Dado que o usuário está logado na aplicação
+
 Quando o usuário navega para a página do carrinho
+
 E o carrinho está vazio
+
 E o usuário tenta clicar em "Checkout"
+
 Então o botão "Checkout" deve estar desabilitado ou uma mensagem de erro/aviso deve ser exibida, impedindo o avanço para o formulário de informações
 
 **Actual result:**
