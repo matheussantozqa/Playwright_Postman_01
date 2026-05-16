@@ -1,4 +1,4 @@
-### TC-UI-01 LOGIN COM USUÁRIO PADRÃO (VÁLIDO)
+### TC-UI-01 LOGIN COM USUÁRIO PADRÃO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar o acesso à aplicação Sauce Demo utilizando credenciais válidas de um usuário padrão.
