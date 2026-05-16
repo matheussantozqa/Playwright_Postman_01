@@ -1,4 +1,4 @@
-### TC-UI-06 ORDENAÇÃO DE PRODUTOS (PREÇO: MENOR PARA MAIOR)
+### TC-UI-07 ORDENAÇÃO DE PRODUTOS (PREÇO: MENOR PARA MAIOR)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do menor para o maior.
@@ -15,7 +15,7 @@ Então a lista de produtos é atualizada exibindo o item de menor valor primeiro
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/0f522376-3fb9-4b0c-813d-adac28135990
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-07.mp4
 
 **Environment:** Chrome - Opera
 
@@ -23,7 +23,7 @@ Então a lista de produtos é atualizada exibindo o item de menor valor primeiro
 
 ---
 
-### TC-UI-07 ORDENAÇÃO DE PRODUTOS (PREÇO: MAIOR PARA MENOR)
+### TC-UI-08 ORDENAÇÃO DE PRODUTOS (PREÇO: MAIOR PARA MENOR)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do maior para o menor.
@@ -40,7 +40,7 @@ Então a lista de produtos é atualizada exibindo o item de maior valor primeiro
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/5e8957e7-3d2e-47d5-9369-9f9d99eb1ba5
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-08.mp4
 
 **Environment:** Chrome - Opera
 
@@ -48,7 +48,7 @@ Então a lista de produtos é atualizada exibindo o item de maior valor primeiro
 
 ---
 
-### TC-UI-08 ORDENAÇÃO DE PRODUTOS (NOME: A a Z)
+### TC-UI-09 ORDENAÇÃO DE PRODUTOS (NOME: A a Z)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de A a Z.
@@ -65,7 +65,7 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/4c18f27f-38df-4c0f-8432-119fb138b94b
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-09.mp4
 
 **Environment:** Chrome - Opera
 
@@ -73,7 +73,7 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 ---
 
-### TC-UI-09 ORDENAÇÃO DE PRODUTOS (NOME: Z a A)
+### TC-UI-10 ORDENAÇÃO DE PRODUTOS (NOME: Z a A)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de Z a A.
@@ -90,7 +90,7 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/9f23f5d8-fd26-4c12-8f0e-b76f0a4a3e8f
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-10.mp4
 
 **Environment:** Chrome - Opera
 
