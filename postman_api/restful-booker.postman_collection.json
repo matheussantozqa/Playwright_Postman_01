@@ -8,7 +8,7 @@
   },
   "item": [
     {
-      "name": "1. Authentication",
+      "name": "TC-API-01 AUTENTICAÇÃO BÁSICA",
       "description": "Endpoint de autenticacao - gera o token usado nas operacoes de update e delete.",
       "item": [
         {
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "name": "2. Create Booking",
+      "name": "TC-API-02 CRIAÇÃO DE RESERVA",
       "description": "Criacao de uma nova reserva. Salva o bookingid para uso nos folders seguintes.",
       "item": [
         {
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "name": "3. Read Booking",
+      "name": "TC-API-03 LEITURA E VALIDAÇÃO DE RESERVA",
       "description": "Leitura e validacao da reserva criada.",
       "item": [
         {
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "name": "4. Update Booking",
+      "name": "TC-API-04 ATUALIZAÇÃO DE RESERVA",
       "description": "Atualizacao completa da reserva via PUT - usa o token gerado no folder de Authentication.",
       "item": [
         {
@@ -179,7 +179,7 @@
       ]
     },
     {
-      "name": "5. Delete Booking",
+      "name": "TC-API-05 EXCLUSÃO DE RESERVA",
       "description": "Exclusao da reserva - usa o token gerado no folder de Authentication.",
       "item": [
         {
