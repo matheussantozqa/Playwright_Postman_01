@@ -19,8 +19,7 @@ Teste de Aceitação Funcional Manual focado em validar o acesso à aplicação 
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/41d7cffc-dd98-4c32-b05e-454dc145acb1
-
+https://github.com/user-attachments/assets/03249929-b066-4dd1-bf7e-02c35ab35d58
 
 
 **Environment:** Chrome - Opera
@@ -49,8 +48,7 @@ Teste de Aceitação Funcional Manual focado em validar a restrição de acesso 
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/13342c8e-2f08-4a15-b846-bdbdbbc8b8ee
-
+https://github.com/user-attachments/assets/b9fde04c-0a6b-4dd4-8244-051e00c8f2f6
 
 
 **Environment:** Chrome - Opera
@@ -79,8 +77,7 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/af1c0c47-645f-45f3-afe3-a4982ce36705
-
+https://github.com/user-attachments/assets/4701787d-b5e6-4ee9-bb3c-15a881140713
 
 
 **Environment:** Chrome - Opera
@@ -109,8 +106,7 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/c4760fb2-8b91-456c-8e46-37bbf3a0b9c1
-
+https://github.com/user-attachments/assets/b0bf89b3-32c3-412a-b5e1-2eda8c2acee7
 
 
 **Environment:** Chrome - Opera
@@ -140,8 +136,7 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/93b154a3-2d97-41fa-9662-8394d6b02a41
-
+https://github.com/user-attachments/assets/0995626a-0d47-494a-ad7b-3cf3b6eb81e4
 
 
 **Environment:** Chrome - Opera
@@ -171,8 +166,7 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ence
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/d80bc73e-1306-4dde-b756-01c1ffcf8cd4
-
+https://github.com/user-attachments/assets/a7b0b7db-31ed-4643-a32e-40a103e65ba5
 
 
 **Environment:** Chrome - Opera
