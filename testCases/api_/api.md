@@ -48,7 +48,12 @@ E o corpo da resposta contém o "bookingid" gerado e os dados da reserva criados
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-API-02.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/c7a680bb-7dea-4d44-94f4-a2f2ee02f2ab
+
+
 
 **Environment:** Chrome - Opera
 
@@ -74,7 +79,12 @@ E o corpo da resposta contém o bookingid preenchidos corretamente
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-API-03.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/6fc38399-7b99-479f-985b-64bb417d89ff
+
+
 
 **Environment:** Chrome - Opera
 
@@ -102,7 +112,12 @@ E o corpo da resposta reflete as alterações enviadas no payload
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-API-04.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/d8dd749d-b2c6-40e5-b042-8463ead89473
+
+
 
 **Environment:** Chrome - Opera
 
@@ -131,7 +146,12 @@ Então a API retorna o status code 404 Not Found
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-API-05.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/87756f41-84af-471f-a4ae-230c5b800f96
+
+
 
 **Environment:** Chrome - Opera
 
