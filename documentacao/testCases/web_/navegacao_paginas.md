@@ -28,8 +28,7 @@ Teste de Aceitação Funcional Manual focado em validar a navegação entre as p
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/7a9fe8fa-6222-44d9-8938-505a6cd5935f
-
+https://github.com/user-attachments/assets/142a7ce8-000f-422a-81af-b18d72992b34
 
 
 **Environment:** Chrome - Opera

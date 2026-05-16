@@ -23,8 +23,7 @@ Teste de Aceitação Funcional Manual focado em validar a adição de itens ao c
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/82fd9e1b-1818-4f03-8927-21a031bc40ff
-
+https://github.com/user-attachments/assets/5ad931b6-e2a9-470a-ba0d-f81afdcae093
 
 
 **Environment:** Chrome - Opera
@@ -55,8 +54,7 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/59f6c45f-daca-4f31-95b6-7ea75d704b6c
-
+https://github.com/user-attachments/assets/f757e4fd-0be9-432e-a4c6-238540bb1a1e
 
 
 **Environment:** Chrome - Opera
@@ -87,8 +85,7 @@ Teste de Aceitação Funcional Manual focado em validar a remoção de um único
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/6119b1c9-44b4-4b96-a8be-67dc3b013c5f
-
+https://github.com/user-attachments/assets/edc93b4c-84a2-4935-93b3-b729e5ed02f6
 
 
 **Environment:** Chrome - Opera
@@ -119,8 +116,7 @@ Teste de Aceitação Funcional Manual focado em validar a remoção de múltiplo
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/ace5519a-6da3-45f6-9632-f4988342c7a5
-
+https://github.com/user-attachments/assets/2266afcd-6714-49d5-af97-cd47a35a130c
 
 
 **Environment:** Chrome - Opera

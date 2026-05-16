@@ -18,8 +18,7 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/103ed010-1473-435c-9ced-945f7a1a1e86
-
+https://github.com/user-attachments/assets/ed2d8d29-4b2b-4db0-ae5f-82c502b3c8af
 
 
 **Environment:** Chrome - Opera
@@ -48,8 +47,7 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/e32574d0-40cd-4047-95a2-7fef0be7f9a4
-
+https://github.com/user-attachments/assets/c07deb6c-31b8-4463-b14f-e098bd404e0d
 
 
 **Environment:** Chrome - Opera
@@ -78,8 +76,7 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/e1acba77-5f52-4b23-9a4a-acc8db24fea8
-
+https://github.com/user-attachments/assets/5f24f26c-3f95-4311-b72b-855c78e8e2d6
 
 
 **Environment:** Chrome - Opera
@@ -108,7 +105,7 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/aefb170b-19ed-440e-942d-f4112d182d8d
+https://github.com/user-attachments/assets/e54629b8-5240-4c40-b1a7-0821903cadc5
 
 
 
