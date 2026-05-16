@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 /**
  * Pos-processa os arquivos *-result.json gerados pelo newman-reporter-allure
- * e PROMOVE cada folder da collection a parentSuite separada no Allure.
+ * e injeta labels Allure para que o report fique completo:
+ *   - parentSuite: nome do folder (1 folder = 1 suite no widget Suites)
+ *   - epic:        "Restful Booker API" (top-level no Behaviors)
+ *   - feature:     "Autenticacao" ou "Reservas" (nivel intermediario)
+ *   - story:       nome do folder (nivel granular - aparece em Features by Stories)
+ *   - severity:    "critical" para auth, "normal" para CRUD
+ *   - owner:       "QA Team"
+ *   - tag:         "api", "smoke"
  *
- * MODO DINAMICO: le a collection JSON e constroi o mapeamento
- * "nome do request" -> "nome do folder" automaticamente.
- *
- * Se voce renomear folders ou requests na collection, NAO precisa atualizar
- * este script - basta rodar de novo que ele descobre sozinho.
+ * MODO DINAMICO: le a collection e mapeia request -> folder automaticamente.
  */
 const fs = require('fs');
 const path = require('path');
@@ -20,42 +23,42 @@ if (!fs.existsSync(COLLECTION_FILE)) {
   console.error('[inject-allure-suites] Collection nao encontrada: ' + COLLECTION_FILE);
   process.exit(1);
 }
-
 if (!fs.existsSync(RESULTS_DIR)) {
   console.error('[inject-allure-suites] Diretorio ' + RESULTS_DIR + ' nao existe.');
   process.exit(1);
 }
 
-// Constroi mapeamento dinamico lendo a collection
 const collection = JSON.parse(fs.readFileSync(COLLECTION_FILE, 'utf8'));
-const SUITE_MAP = {};
+const REQUEST_MAP = {};
 
 function walk(items, folderName) {
   if (!Array.isArray(items)) return;
   items.forEach(function(item) {
-    if (item.item) {
-      // E um folder - desce mantendo o nome desse folder como suite
-      walk(item.item, item.name);
-    } else if (item.request) {
-      // E um request - mapeia para o folder pai
-      SUITE_MAP[item.name] = folderName || collection.info.name;
-    }
+    if (item.item) walk(item.item, item.name);
+    else if (item.request) REQUEST_MAP[item.name] = folderName || collection.info.name;
   });
 }
 walk(collection.item, null);
 
-console.log('[inject-allure-suites] Mapeamento descoberto a partir da collection:');
-Object.keys(SUITE_MAP).forEach(function(req) {
-  console.log('  ' + req + '  ->  ' + SUITE_MAP[req]);
-});
-console.log('');
+// Heuristica simples para feature e severity baseado no nome do folder
+function inferFeature(folderName) {
+  var s = folderName.toLowerCase();
+  if (s.indexOf('autentica') >= 0 || s.indexOf('auth') >= 0) return 'Autenticacao';
+  return 'Reservas';
+}
+function inferSeverity(folderName) {
+  var s = folderName.toLowerCase();
+  if (s.indexOf('autentica') >= 0) return 'critical';
+  if (s.indexOf('criac') >= 0 || s.indexOf('exclus') >= 0) return 'critical';
+  return 'normal';
+}
 
 const files = fs.readdirSync(RESULTS_DIR).filter(function(f) {
   return f.endsWith('-result.json');
 });
 
 if (files.length === 0) {
-  console.warn('[inject-allure-suites] Nenhum *-result.json encontrado em ' + RESULTS_DIR + '.');
+  console.warn('[inject-allure-suites] Nenhum *-result.json em ' + RESULTS_DIR);
   process.exit(0);
 }
 
@@ -65,21 +68,35 @@ var skipped = 0;
 files.forEach(function(file) {
   const filePath = path.join(RESULTS_DIR, file);
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const suiteName = SUITE_MAP[data.name];
+  const folderName = REQUEST_MAP[data.name];
 
-  if (!suiteName) {
+  if (!folderName) {
     console.warn('[inject-allure-suites] Sem mapeamento para "' + data.name + '" - pulando.');
     skipped++;
     return;
   }
 
+  const feature = inferFeature(folderName);
+  const severity = inferSeverity(folderName);
+
+  // Limpa labels antigas dessas chaves
   data.labels = (data.labels || []).filter(function(l) {
-    return l.name !== 'parentSuite' && l.name !== 'suite' && l.name !== 'subSuite';
+    return ['parentSuite', 'suite', 'subSuite', 'epic', 'feature', 'story',
+            'severity', 'owner', 'tag'].indexOf(l.name) === -1;
   });
-  data.labels.push({ name: 'parentSuite', value: suiteName });
+
+  data.labels.push({ name: 'parentSuite', value: folderName });
+  data.labels.push({ name: 'epic',        value: 'Restful Booker API' });
+  data.labels.push({ name: 'feature',     value: feature });
+  data.labels.push({ name: 'story',       value: folderName });
+  data.labels.push({ name: 'severity',    value: severity });
+  data.labels.push({ name: 'owner',       value: 'QA Team' });
+  data.labels.push({ name: 'tag',         value: 'api' });
+  data.labels.push({ name: 'tag',         value: 'smoke' });
 
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-  console.log('[inject-allure-suites] OK ' + data.name + '  ->  parentSuite: ' + suiteName);
+  console.log('[inject-allure-suites] OK ' + data.name +
+              '  ->  ' + folderName + ' [' + feature + '/' + severity + ']');
   updated++;
 });
 

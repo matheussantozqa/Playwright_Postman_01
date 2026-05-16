@@ -65,14 +65,17 @@ jobs:
         run: npm run test:ci
         continue-on-error: true
 
-      - name: Injetar parentSuites no Allure (1 spec = 1 suite)
+      - name: Injetar labels + copiar meta (categories/executor/env)
         if: always()
         working-directory: playwright_web
         run: |
           if [ -d "allure-results" ] && [ -n "$(ls -A allure-results 2>/dev/null)" ]; then
             npm run inject-suites
+            npm run copy-meta
           else
             echo "Sem allure-results - pulando inject."
+            mkdir -p allure-results
+            npm run copy-meta
           fi
 
       - name: Gerar report Allure

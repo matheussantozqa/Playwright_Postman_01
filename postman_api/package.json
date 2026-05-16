@@ -1,14 +1,15 @@
 {
   "name": "betalent-api-tests",
   "version": "1.0.0",
-  "description": "Automacao dos testes de API (restful-booker) com Newman + Allure - parte do projeto Be_Talent_TestTec_Web-API.",
+  "description": "Automacao dos testes de API (restful-booker) com Newman + Allure.",
   "private": true,
   "scripts": {
     "newman": "newman run restful-booker.postman_collection.json -e restful-booker.postman_environment.json --reporters cli,allure --reporter-allure-export allure-results",
     "newman:ci": "newman run restful-booker.postman_collection.json -e restful-booker.postman_environment.json --reporters cli,allure --reporter-allure-export allure-results --color off",
     "inject-suites": "node scripts/inject-allure-suites.js allure-results",
-    "test": "npm run newman && npm run inject-suites",
-    "test:ci": "npm run newman:ci && npm run inject-suites",
+    "copy-meta": "node scripts/copy-allure-meta.js allure-results",
+    "test": "npm run newman && npm run inject-suites && npm run copy-meta",
+    "test:ci": "npm run newman:ci && npm run inject-suites && npm run copy-meta",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
     "clean": "rimraf allure-results allure-report"
