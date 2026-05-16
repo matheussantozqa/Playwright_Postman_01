@@ -9,9 +9,9 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 
 **Expected results:**
 
-Dado que o usuário está na página de produtos
-Quando o usuário seleciona a ordenação "Price (low to high)" no menu suspenso
-Então a lista de produtos é atualizada exibindo o item de menor valor primeiro e os demais em ordem crescente de preço
+- Dado que o usuário está na página de produtos
+- Quando o usuário seleciona a ordenação "Price (low to high)" no menu suspenso
+- Então a lista de produtos é atualizada exibindo o item de menor valor primeiro e os demais em ordem crescente de preço
 
 **Status:** Aprovado ✅
 
@@ -39,9 +39,9 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 
 **Expected results:**
 
-Dado que o usuário está na página de produtos
-Quando o usuário seleciona a ordenação "Price (high to low)" no menu suspenso
-Então a lista de produtos é atualizada exibindo o item de maior valor primeiro e os demais em ordem decrescente de preço
+- Dado que o usuário está na página de produtos
+- Quando o usuário seleciona a ordenação "Price (high to low)" no menu suspenso
+- Então a lista de produtos é atualizada exibindo o item de maior valor primeiro e os demais em ordem decrescente de preço
 
 **Status:** Aprovado ✅
 
@@ -69,9 +69,9 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 
 **Expected results:**
 
-Dado que o usuário está na página de produtos
-Quando o usuário seleciona a ordenação "Name (A to Z)" no menu suspenso
-Então a lista de produtos é atualizada exibindo os itens em ordem alfabética crescente de nome
+- Dado que o usuário está na página de produtos
+- Quando o usuário seleciona a ordenação "Name (A to Z)" no menu suspenso
+- Então a lista de produtos é atualizada exibindo os itens em ordem alfabética crescente de nome
 
 **Status:** Aprovado ✅
 
@@ -99,9 +99,9 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de orde
 
 **Expected results:**
 
-Dado que o usuário está na página de produtos
-Quando o usuário seleciona a ordenação "Name (Z to A)" no menu suspenso
-Então a lista de produtos é atualizada exibindo os itens em ordem alfabética decrescente de nome
+- Dado que o usuário está na página de produtos
+- Quando o usuário seleciona a ordenação "Name (Z to A)" no menu suspenso
+- Então a lista de produtos é atualizada exibindo os itens em ordem alfabética decrescente de nome
 
 **Status:** Aprovado ✅
 
