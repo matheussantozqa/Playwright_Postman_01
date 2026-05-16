@@ -16,7 +16,12 @@ Então a página de listagem de produtos carrega com sucesso sem erros
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-01.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/41d7cffc-dd98-4c32-b05e-454dc145acb1
+
+
 
 **Environment:** Chrome - Opera
 
@@ -41,7 +46,12 @@ Então uma mensagem de erro indicando que o usuário está bloqueado é exibida 
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-02.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/13342c8e-2f08-4a15-b846-bdbdbbc8b8ee
+
+
 
 **Environment:** Chrome - Opera
 
@@ -70,7 +80,12 @@ Então uma mensagem de erro "Epic sadface: Password is required" é exibida na t
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-03.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/af1c0c47-645f-45f3-afe3-a4982ce36705
+
+
 
 **Environment:** Chrome - Opera
 
@@ -95,7 +110,12 @@ Então uma mensagem de erro "Epic sadface: Username and password do not match an
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-04.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/c4760fb2-8b91-456c-8e46-37bbf3a0b9c1
+
+
 
 **Environment:** Chrome - Opera
 
@@ -121,7 +141,13 @@ Então uma mensagem de erro "Epic sadface: Username and password do not match an
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-05.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/93b154a3-2d97-41fa-9662-8394d6b02a41
+
+
+
 **Environment:** Chrome - Opera
 
 **Device:** Windows 11
@@ -146,7 +172,12 @@ Então o usuário é redirecionado para a página de login com sucesso sem erros
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-06.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/d80bc73e-1306-4dde-b756-01c1ffcf8cd4
+
+
 
 **Environment:** Chrome - Opera
 
