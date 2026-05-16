@@ -21,8 +21,7 @@ E o corpo da resposta contém uma propriedade "token" válida
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/1a7c36c9-b425-41be-a771-0b8199b94eab
-
+https://github.com/user-attachments/assets/2e171804-678a-457e-b0ed-028ff3fb10b0
 
 
 **Environment:** Chrome - Opera
@@ -51,8 +50,7 @@ E o corpo da resposta contém o "bookingid" gerado e os dados da reserva criados
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/c7a680bb-7dea-4d44-94f4-a2f2ee02f2ab
-
+https://github.com/user-attachments/assets/1a7f32a1-eb53-4743-b1f2-05dd5a29a246
 
 
 **Environment:** Chrome - Opera
@@ -82,8 +80,7 @@ E o corpo da resposta contém o bookingid preenchidos corretamente
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/6fc38399-7b99-479f-985b-64bb417d89ff
-
+https://github.com/user-attachments/assets/c5eade28-bc5d-4106-bd2f-d0911ccc045b
 
 
 **Environment:** Chrome - Opera
@@ -115,8 +112,7 @@ E o corpo da resposta reflete as alterações enviadas no payload
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/d8dd749d-b2c6-40e5-b042-8463ead89473
-
+https://github.com/user-attachments/assets/dca22eac-c7e0-441e-befa-fcfebb816cda
 
 
 **Environment:** Chrome - Opera
@@ -149,8 +145,7 @@ Então a API retorna o status code 404 Not Found
 **Evidence:** 
 
 
-https://github.com/user-attachments/assets/87756f41-84af-471f-a4ae-230c5b800f96
-
+https://github.com/user-attachments/assets/905a5a02-b1a3-4a1e-8436-a9b80c513d40
 
 
 **Environment:** Chrome - Opera
