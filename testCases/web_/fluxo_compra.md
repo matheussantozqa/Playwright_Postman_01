@@ -20,7 +20,12 @@ Então a página de confirmação de compra ("THANK YOU FOR YOUR ORDER") carrega
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-11.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/82fd9e1b-1818-4f03-8927-21a031bc40ff
+
+
 
 **Environment:** Chrome - Opera
 
@@ -47,7 +52,12 @@ Então o botão "Checkout" deve estar desabilitado ou uma mensagem de erro/aviso
 
 **Status:** Reprovado 🚨 
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-12.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/59f6c45f-daca-4f31-95b6-7ea75d704b6c
+
+
 
 **Environment:** Chrome - Opera
 
@@ -74,7 +84,12 @@ E o ícone do carrinho é atualizado para mostrar "0" itens
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-13.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/6119b1c9-44b4-4b96-a8be-67dc3b013c5f
+
+
 
 **Environment:** Chrome - Opera
 
@@ -101,7 +116,12 @@ E o ícone do carrinho é atualizado para refletir a quantidade restante de iten
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-14.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/ace5519a-6da3-45f6-9632-f4988342c7a5
+
+
 
 **Environment:** Chrome - Opera
 
