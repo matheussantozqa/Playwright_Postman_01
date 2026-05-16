@@ -55,6 +55,21 @@ jobs:
             echo "Nenhum historico anterior encontrado (primeira execucao)."
           fi
 
+      - name: Preparar arquivos de configuracao do Allure
+        working-directory: postman_api
+        run: |
+          mkdir -p allure-results
+          cp scripts/environment.properties allure-results/
+          cp scripts/categories.json allure-results/
+          cat > allure-results/executor.json << 'EOF'
+          {
+            "name": "GitHub Actions",
+            "type": "github",
+            "buildName": "Run #${{ github.run_number }}",
+            "buildUrl": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }
+          EOF
+
       - name: Rodar Newman (collection restful-booker)
         id: newman
         working-directory: postman_api
@@ -75,7 +90,6 @@ jobs:
         if: always()
         run: |
           mkdir -p site/api
-          # Copia o report Allure para site/api/
           if [ -d "postman_api/allure-report" ]; then
             cp -r postman_api/allure-report/. site/api/
             echo "Report copiado para site/api/"
@@ -83,7 +97,6 @@ jobs:
             echo "ERRO: allure-report nao foi gerado."
             exit 1
           fi
-          # Gera landing page na raiz
           cat > site/index.html <<'EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
@@ -153,7 +166,6 @@ jobs:
           </body>
           </html>
           EOF
-          # Arquivo .nojekyll evita que o GitHub Pages processe o site com Jekyll
           touch site/.nojekyll
           echo "Site pronto para publicacao."
           ls -la site/

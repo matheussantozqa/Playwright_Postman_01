@@ -19,6 +19,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "allure.label('epic', 'Restful Booker');",
+                  "allure.label('feature', 'Autenticacao');",
+                  "allure.label('story', 'TC-API-01 Autenticacao Basica');",
                   "pm.test('Status code 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Tempo de resposta < 5s', function () { pm.expect(pm.response.responseTime).to.be.below(5000); });",
                   "pm.test('Body contem token', function () {",
@@ -58,6 +61,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "allure.label('epic', 'Restful Booker');",
+                  "allure.label('feature', 'Reservas');",
+                  "allure.label('story', 'TC-API-02 Criacao de Reserva');",
                   "pm.test('Status code 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Content-Type application/json', function () { pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json'); });",
                   "pm.test('Body retorna bookingid e booking', function () {",
@@ -111,6 +117,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "allure.label('epic', 'Restful Booker');",
+                  "allure.label('feature', 'Reservas');",
+                  "allure.label('story', 'TC-API-03 Leitura e Validacao de Reserva');",
                   "pm.test('Status code 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Content-Type application/json', function () { pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json'); });",
                   "pm.test('Reserva retornada bate com a criada', function () {",
@@ -148,6 +157,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "allure.label('epic', 'Restful Booker');",
+                  "allure.label('feature', 'Reservas');",
+                  "allure.label('story', 'TC-API-04 Atualizacao de Reserva');",
                   "pm.test('Status code 200', function () { pm.response.to.have.status(200); });",
                   "pm.test('Reserva atualizada corretamente', function () {",
                   "  const json = pm.response.json();",
@@ -190,6 +202,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
+                  "allure.label('epic', 'Restful Booker');",
+                  "allure.label('feature', 'Reservas');",
+                  "allure.label('story', 'TC-API-05 Exclusao de Reserva');",
                   "pm.test('Status code 201 (delete OK no restful-booker)', function () { pm.response.to.have.status(201); });",
                   "pm.test('Tempo de resposta < 5s', function () { pm.expect(pm.response.responseTime).to.be.below(5000); });"
                 ]
