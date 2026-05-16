@@ -15,11 +15,8 @@ permissions:
 
 jobs:
   api-tests:
-    name: Run Newman + Generate Allure Report
+    name: Run Newman + Publish Allure Report
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: postman_api
 
     steps:
       - name: Checkout do codigo
@@ -29,8 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: postman_api/package.json
 
       - name: Setup Java (necessario para Allure CLI)
         uses: actions/setup-java@v4
@@ -39,12 +34,13 @@ jobs:
           java-version: '17'
 
       - name: Instalar dependencias do projeto
-        run: npm install
+        working-directory: postman_api
+        run: npm install --no-audit --no-fund
 
       - name: Instalar Allure CLI
-        run: npm install -g allure-commandline --save-dev
+        run: npm install -g allure-commandline
 
-      - name: Baixar historico anterior do Allure
+      - name: Baixar historico anterior do Allure (para grafico de tendencia)
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -52,6 +48,7 @@ jobs:
         continue-on-error: true
 
       - name: Restaurar historico do Allure
+        working-directory: postman_api
         run: |
           mkdir -p allure-results
           if [ -d "../gh-pages-checkout/api/history" ]; then
@@ -63,42 +60,34 @@ jobs:
 
       - name: Rodar Newman (collection restful-booker)
         id: newman
+        working-directory: postman_api
         run: npm run test:ci
         continue-on-error: true
 
       - name: Gerar report Allure
         if: always()
-        run: npm run report:generate
-
-      - name: Upload do report como artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report-api
-          path: postman_api/allure-report
-          retention-days: 30
-
-      - name: Publicar report na branch gh-pages
-        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: postman_api/allure-report
-          publish_branch: gh-pages
-          destination_dir: api
-          keep_files: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'docs(api): atualiza Allure report - run ${{ github.run_number }}'
-
-      # Gera uma landing page na raiz da gh-pages com links para os reports.
-      # Sem isso, acessar a URL raiz (sem /api/) retorna 404.
-      - name: Gerar landing page (index.html na raiz da gh-pages)
-        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        working-directory: .
+        working-directory: postman_api
         run: |
-          mkdir -p landing-page
-          cat > landing-page/index.html <<'EOF'
+          if [ ! -d "allure-results" ] || [ -z "$(ls -A allure-results 2>/dev/null)" ]; then
+            echo "Nenhum resultado encontrado - gerando report vazio com mensagem."
+            mkdir -p allure-results
+          fi
+          npm run report:generate
+
+      - name: Preparar site para publicacao (landing + report)
+        if: always()
+        run: |
+          mkdir -p site/api
+          # Copia o report Allure para site/api/
+          if [ -d "postman_api/allure-report" ]; then
+            cp -r postman_api/allure-report/. site/api/
+            echo "Report copiado para site/api/"
+          else
+            echo "ERRO: allure-report nao foi gerado."
+            exit 1
+          fi
+          # Gera landing page na raiz
+          cat > site/index.html <<'EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
           <head>
@@ -143,11 +132,6 @@ jobs:
                 border-color: #1e3c72;
                 transform: translateY(-2px);
               }
-              .report-card.disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-                pointer-events: none;
-              }
               .report-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
               .report-desc { font-size: 13px; opacity: 0.8; }
               .footer { margin-top: 32px; text-align: center; color: #999; font-size: 12px; }
@@ -172,22 +156,34 @@ jobs:
           </body>
           </html>
           EOF
-          echo "Landing page gerada."
+          # Arquivo .nojekyll evita que o GitHub Pages processe o site com Jekyll
+          touch site/.nojekyll
+          echo "Site pronto para publicacao."
+          ls -la site/
+          ls -la site/api/ | head -5
 
-      - name: Publicar landing page na raiz da gh-pages
-        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      - name: Upload do report como artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-api
+          path: site/api
+          retention-days: 30
+
+      - name: Publicar site na branch gh-pages
+        if: always() && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./landing-page
+          publish_dir: ./site
           publish_branch: gh-pages
           keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'docs: atualiza landing page - run ${{ github.run_number }}'
+          commit_message: 'docs: atualiza Allure report API - run ${{ github.run_number }}'
 
       - name: Falhar job se houver testes quebrados
         if: steps.newman.outcome == 'failure'
         run: |
-          echo "Newman reportou falhas - veja o Allure report publicado em gh-pages."
+          echo "::error::Newman reportou falhas - veja o Allure report publicado em gh-pages."
           exit 1

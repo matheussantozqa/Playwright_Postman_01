@@ -12,10 +12,13 @@
   },
   "devDependencies": {
     "newman": "^6.2.1",
-    "newman-reporter-allure": "^0.0.13",
+    "newman-reporter-allure": "^3.8.0",
     "rimraf": "^5.0.5"
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.41.0"
   }
 }
