@@ -18,7 +18,12 @@ E o corpo da resposta contém uma propriedade "token" válida
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/bfc89ada-9cc1-4b8f-ba7e-76a1c8c817b6
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/1a7c36c9-b425-41be-a771-0b8199b94eab
+
+
 
 **Environment:** Chrome - Opera
 
@@ -43,7 +48,12 @@ E o corpo da resposta contém o "bookingid" gerado e os dados da reserva criados
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/0bf74edb-659a-4e96-9ef4-2750cceb234c
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/c7a680bb-7dea-4d44-94f4-a2f2ee02f2ab
+
+
 
 **Environment:** Chrome - Opera
 
@@ -69,7 +79,12 @@ E o corpo da resposta contém o bookingid preenchidos corretamente
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/11445e1c-b1c7-4726-8e68-85fffd905663
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/6fc38399-7b99-479f-985b-64bb417d89ff
+
+
 
 **Environment:** Chrome - Opera
 
@@ -97,7 +112,12 @@ E o corpo da resposta reflete as alterações enviadas no payload
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/da98b41e-25f9-4f8f-af39-adea65edce25
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/d8dd749d-b2c6-40e5-b042-8463ead89473
+
+
 
 **Environment:** Chrome - Opera
 
@@ -126,7 +146,12 @@ Então a API retorna o status code 404 Not Found
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/523b99bc-3b93-4cca-9d5e-8e4100427fa1
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/87756f41-84af-471f-a4ae-230c5b800f96
+
+
 
 **Environment:** Chrome - Opera
 

@@ -9,18 +9,23 @@ Teste de Aceitação Funcional Manual focado em validar a adição de itens ao c
 
 **Expected results:**
 
-Dado que o usuário está na página de produtos
-Quando o usuário clica em "Add to cart" em pelo menos um produto
-E navega para a página do carrinho
-E clica em "Checkout"
-E preenche as informações de "First Name", "Last Name" e "Zip/Postal Code"
-E clica em "Continue"
-E clica em "Finish" na página de visão geral
-Então a página de confirmação de compra ("THANK YOU FOR YOUR ORDER") carrega com sucesso sem erros
+- Dado que o usuário está na página de produtos
+- Quando o usuário clica em "Add to cart" em pelo menos um produto
+- E navega para a página do carrinho
+- E clica em "Checkout"
+- E preenche as informações de "First Name", "Last Name" e "Zip/Postal Code"
+- E clica em "Continue"
+- E clica em "Finish" na página de visão geral
+- Então a página de confirmação de compra ("THANK YOU FOR YOUR ORDER") carrega com sucesso sem erros
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/c21439a9-7f56-4eab-84c5-f5ef8b131619
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/82fd9e1b-1818-4f03-8927-21a031bc40ff
+
+
 
 **Environment:** Chrome - Opera
 
@@ -39,15 +44,20 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 
 **Expected results:**
 
-Dado que o usuário está logado na aplicação
-Quando o usuário navega para a página do carrinho
-E o carrinho está vazio
-E o usuário tenta clicar em "Checkout"
-Então o botão "Checkout" deve estar desabilitado ou uma mensagem de erro/aviso deve ser exibida, impedindo o avanço para o formulário de informações
+- Dado que o usuário está logado na aplicação
+- Quando o usuário navega para a página do carrinho
+- E o carrinho está vazio
+- E o usuário tenta clicar em "Checkout"
+- Então o botão "Checkout" deve estar desabilitado ou uma mensagem de erro/aviso deve ser exibida, impedindo o avanço para o formulário de informações
 
 **Status:** Reprovado 🚨 
 
-**Evidence:** https://jam.dev/c/cf7a5589-1850-45c0-aad5-229f1a17e067
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/59f6c45f-daca-4f31-95b6-7ea75d704b6c
+
+
 
 **Environment:** Chrome - Opera
 
@@ -66,15 +76,20 @@ Teste de Aceitação Funcional Manual focado em validar a remoção de um único
 
 **Expected results:**
 
-Dado que o usuário adicionou um produto ao carrinho
-Quando o usuário navega para a página do carrinho
-E clica em "Remove" no item adicionado
-Então o item é removido da lista do carrinho
-E o ícone do carrinho é atualizado para mostrar "0" itens
+- Dado que o usuário adicionou um produto ao carrinho
+- Quando o usuário navega para a página do carrinho
+- E clica em "Remove" no item adicionado
+- Então o item é removido da lista do carrinho
+- E o ícone do carrinho é atualizado para mostrar "0" itens
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/c74f0699-d51b-4558-8afd-f6b6c49f41ea
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/6119b1c9-44b4-4b96-a8be-67dc3b013c5f
+
+
 
 **Environment:** Chrome - Opera
 
@@ -93,15 +108,20 @@ Teste de Aceitação Funcional Manual focado em validar a remoção de múltiplo
 
 **Expected results:**
 
-Dado que o usuário adicionou múltiplos produtos ao carrinho
-Quando o usuário navega para a página do carrinho
-E clica em "Remove" em cada um dos itens adicionados
-Então cada item é removido da lista do carrinho sequencialmente
-E o ícone do carrinho é atualizado para refletir a quantidade restante de itens, até chegar a "0"
+- Dado que o usuário adicionou múltiplos produtos ao carrinho
+- Quando o usuário navega para a página do carrinho
+- E clica em "Remove" em cada um dos itens adicionados
+- Então cada item é removido da lista do carrinho sequencialmente
+- E o ícone do carrinho é atualizado para refletir a quantidade restante de itens, até chegar a "0"
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/24476af0-437a-491b-91f7-02a4d4667d66
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/ace5519a-6da3-45f6-9632-f4988342c7a5
+
+
 
 **Environment:** Chrome - Opera
 
