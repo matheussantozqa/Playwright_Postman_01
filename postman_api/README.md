@@ -93,3 +93,4 @@ gh-pages/
 | GET /booking/{{bookingid}}    | Status 200, content-type, dados conferem com criacao               |
 | PUT /booking/{{bookingid}}    | Status 200, atualizacao refletida no body                          |
 | DELETE /booking/{{bookingid}} | Status 201 (padrao do restful-booker), tempo < 5s                  |
+
