@@ -3,33 +3,56 @@
  * Pos-processa os arquivos *-result.json gerados pelo newman-reporter-allure
  * e PROMOVE cada folder da collection a parentSuite separada no Allure.
  *
- * Antes (padrao do reporter):
- *   parentSuite: "restful-booker" (todos os requests agrupados aqui)
+ * MODO DINAMICO: le a collection JSON e constroi o mapeamento
+ * "nome do request" -> "nome do folder" automaticamente.
  *
- * Depois (com esse script):
- *   parentSuite = nome do folder (cada request num grupo separado)
- *
- * Se voce adicionar/renomear requests, atualize o SUITE_MAP abaixo.
+ * Se voce renomear folders ou requests na collection, NAO precisa atualizar
+ * este script - basta rodar de novo que ele descobre sozinho.
  */
 const fs = require('fs');
 const path = require('path');
 
-const SUITE_MAP = {
-  'POST - Autenticacao Basica': '1. Authentication',
-  'POST - Criar Reserva': '2. Create Booking',
-  'GET - Leitura e Validacao de Reserva': '3. Read Booking',
-  'PUT - Atualizacao de Reserva': '4. Update Booking',
-  'DELETE - Exclusao de Reserva': '5. Delete Booking',
-};
-
 const RESULTS_DIR = process.argv[2] || 'allure-results';
+const COLLECTION_FILE = process.argv[3] ||
+  path.join(__dirname, '..', 'restful-booker.postman_collection.json');
+
+if (!fs.existsSync(COLLECTION_FILE)) {
+  console.error('[inject-allure-suites] Collection nao encontrada: ' + COLLECTION_FILE);
+  process.exit(1);
+}
 
 if (!fs.existsSync(RESULTS_DIR)) {
   console.error('[inject-allure-suites] Diretorio ' + RESULTS_DIR + ' nao existe.');
   process.exit(1);
 }
 
-const files = fs.readdirSync(RESULTS_DIR).filter(function(f) { return f.endsWith('-result.json'); });
+// Constroi mapeamento dinamico lendo a collection
+const collection = JSON.parse(fs.readFileSync(COLLECTION_FILE, 'utf8'));
+const SUITE_MAP = {};
+
+function walk(items, folderName) {
+  if (!Array.isArray(items)) return;
+  items.forEach(function(item) {
+    if (item.item) {
+      // E um folder - desce mantendo o nome desse folder como suite
+      walk(item.item, item.name);
+    } else if (item.request) {
+      // E um request - mapeia para o folder pai
+      SUITE_MAP[item.name] = folderName || collection.info.name;
+    }
+  });
+}
+walk(collection.item, null);
+
+console.log('[inject-allure-suites] Mapeamento descoberto a partir da collection:');
+Object.keys(SUITE_MAP).forEach(function(req) {
+  console.log('  ' + req + '  ->  ' + SUITE_MAP[req]);
+});
+console.log('');
+
+const files = fs.readdirSync(RESULTS_DIR).filter(function(f) {
+  return f.endsWith('-result.json');
+});
 
 if (files.length === 0) {
   console.warn('[inject-allure-suites] Nenhum *-result.json encontrado em ' + RESULTS_DIR + '.');
