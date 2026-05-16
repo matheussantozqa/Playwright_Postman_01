@@ -1,4 +1,4 @@
-### TC-UI-10 FLUXO COMPLETO DE COMPRA (COM PRODUTOS)
+### TC-UI-11 FLUXO COMPLETO DE COMPRA (COM PRODUTOS)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a adição de itens ao carrinho e a finalização do processo de checkout com sucesso.
@@ -28,7 +28,7 @@ Então a página de confirmação de compra ("THANK YOU FOR YOUR ORDER") carrega
 
 ---
 
-### TC-UI-11 TENTAR FINALIZAR COMPRA SEM PRODUTOS NO CARRINHO
+### TC-UI-12 TENTAR FINALIZAR COMPRA SEM PRODUTOS NO CARRINHO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar o comportamento da aplicação ao tentar prosseguir para o checkout com o carrinho vazio.
@@ -55,7 +55,7 @@ Então o botão "Checkout" deve estar desabilitado ou uma mensagem de erro/aviso
 
 ---
 
-### TC-UI-12 REMOÇÃO DE UM ITEM DO CARRINHO
+### TC-UI-13 REMOÇÃO DE UM ITEM DO CARRINHO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a remoção de um único item do carrinho de compras.
@@ -82,7 +82,7 @@ E o ícone do carrinho é atualizado para mostrar "0" itens
 
 ---
 
-### TC-UI-13 REMOÇÃO DE MÚLTIPLOS ITENS DO CARRINHO
+### TC-UI-14 REMOÇÃO DE MÚLTIPLOS ITENS DO CARRINHO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a remoção de múltiplos itens do carrinho de compras.

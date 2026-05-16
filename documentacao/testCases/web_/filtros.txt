@@ -1,4 +1,4 @@
-### TC-UI-06 ORDENAÇÃO DE PRODUTOS (PREÇO: MENOR PARA MAIOR)
+### TC-UI-07 ORDENAÇÃO DE PRODUTOS (PREÇO: MENOR PARA MAIOR)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do menor para o maior.
@@ -23,7 +23,7 @@ Então a lista de produtos é atualizada exibindo o item de menor valor primeiro
 
 ---
 
-### TC-UI-07 ORDENAÇÃO DE PRODUTOS (PREÇO: MAIOR PARA MENOR)
+### TC-UI-08 ORDENAÇÃO DE PRODUTOS (PREÇO: MAIOR PARA MENOR)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por preço, do maior para o menor.
@@ -48,7 +48,7 @@ Então a lista de produtos é atualizada exibindo o item de maior valor primeiro
 
 ---
 
-### TC-UI-08 ORDENAÇÃO DE PRODUTOS (NOME: A a Z)
+### TC-UI-09 ORDENAÇÃO DE PRODUTOS (NOME: A a Z)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de A a Z.
@@ -73,7 +73,7 @@ Então a lista de produtos é atualizada exibindo os itens em ordem alfabética 
 
 ---
 
-### TC-UI-09 ORDENAÇÃO DE PRODUTOS (NOME: Z a A)
+### TC-UI-10 ORDENAÇÃO DE PRODUTOS (NOME: Z a A)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ordenação de produtos por nome, de Z a A.

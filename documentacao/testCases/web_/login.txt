@@ -128,7 +128,7 @@ Então uma mensagem de erro "Epic sadface: Username and password do not match an
 
 ---
 
-### TC-UI-15 LOGOUT DA APLICAÇÃO
+### TC-UI-06 LOGOUT DA APLICAÇÃO
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a funcionalidade de encerramento de sessão (logout) da aplicação Sauce Demo.
