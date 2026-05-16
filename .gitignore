@@ -1,0 +1,11 @@
+# Artefatos gerados
+allure-report/
+allure-results/
+test-results/
+
+# Playwright
+playwright_web/node_modules/
+playwright_web/playwright-report/
+playwright_web/blob-report/
+playwright_web/.playwright/
+playwright_web/.env
