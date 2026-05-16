@@ -19,7 +19,11 @@ E o corpo da resposta contém uma propriedade "token" válida
 **Status:** Aprovado ✅
 
 **Evidence:** 
-<video src="https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/download/v1.0.0/TC-API-01.mp4" controls width="400"></video>
+
+
+https://github.com/user-attachments/assets/1a7c36c9-b425-41be-a771-0b8199b94eab
+
+
 
 **Environment:** Chrome - Opera
 
