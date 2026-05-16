@@ -92,7 +92,7 @@ https://github.com/user-attachments/assets/6fc38399-7b99-479f-985b-64bb417d89ff
 
 ---
 
-### TC-API-04 ATUALIZAÇÃO DE RESERVA '
+### TC-API-04 ATUALIZAÇÃO DE RESERVA 
 
 **Description**
 Teste de Aceitação Funcional Manual com Postman focado em validar a atualização completa dos dados de uma reserva existente.
