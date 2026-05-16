@@ -1,4 +1,4 @@
-###BUG-UI-11 TENTAR FINALIZAR COMPRA SEM PRODUTOS NO CARRINHO
+###BUG-UI-12 TENTAR FINALIZAR COMPRA SEM PRODUTOS NO CARRINHO
 
 **Description**
 Bug funcional identificado durante a execução do teste de aceitação manual ao validar o comportamento da aplicação ao tentar prosseguir para o checkout com o carrinho vazio.
@@ -26,7 +26,12 @@ Priority: Medium
 
 Status: Open 🚨
 
-Evidence: https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-12.mp4
+Evidence:
+
+
+https://github.com/user-attachments/assets/8ef628e6-48c1-43f8-8f3c-26cfe5279eae
+
+
 
 Environment: Chrome - Opera
 
