@@ -33,12 +33,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Instalar dependencias do projeto
+      - name: Instalar dependencias do projeto (inclui allure-commandline local)
         working-directory: postman_api
         run: npm install --no-audit --no-fund
-
-      - name: Instalar Allure CLI
-        run: npm install -g allure-commandline
 
       - name: Baixar historico anterior do Allure (para grafico de tendencia)
         uses: actions/checkout@v4
