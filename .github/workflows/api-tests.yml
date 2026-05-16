@@ -10,7 +10,6 @@ on:
       - '.github/workflows/api-tests.yml'
   workflow_dispatch:
 
-# Permissoes necessarias para o job de deploy publicar na branch gh-pages
 permissions:
   contents: write
 
@@ -45,8 +44,6 @@ jobs:
       - name: Instalar Allure CLI
         run: npm install -g allure-commandline --save-dev
 
-      # Recupera o historico anterior do Allure (publicado em gh-pages) para
-      # que o report final tenha graficos de tendencia entre execucoes.
       - name: Baixar historico anterior do Allure
         uses: actions/checkout@v4
         with:
@@ -67,7 +64,6 @@ jobs:
       - name: Rodar Newman (collection restful-booker)
         id: newman
         run: npm run test:ci
-        # Mesmo se algum teste falhar, queremos gerar e publicar o report
         continue-on-error: true
 
       - name: Gerar report Allure
@@ -89,16 +85,107 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: postman_api/allure-report
           publish_branch: gh-pages
-          # Subdiretorio /api dentro da gh-pages - assim o report do Playwright
-          # podera ser publicado em /web sem conflito.
           destination_dir: api
           keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'docs(api): atualiza Allure report - run ${{ github.run_number }}'
 
-      # Se algum teste falhou, o job inteiro falha apos publicar o report,
-      # para que o status do commit reflita a realidade.
+      # Gera uma landing page na raiz da gh-pages com links para os reports.
+      # Sem isso, acessar a URL raiz (sem /api/) retorna 404.
+      - name: Gerar landing page (index.html na raiz da gh-pages)
+        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        working-directory: .
+        run: |
+          mkdir -p landing-page
+          cat > landing-page/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="pt-BR">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>be_Talent_TestTec - Test Reports</title>
+            <style>
+              * { box-sizing: border-box; margin: 0; padding: 0; }
+              body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+              }
+              .container {
+                background: white;
+                border-radius: 12px;
+                padding: 48px;
+                max-width: 640px;
+                width: 100%;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+              }
+              h1 { color: #1e3c72; margin-bottom: 8px; font-size: 28px; }
+              .subtitle { color: #666; margin-bottom: 32px; font-size: 14px; }
+              .reports { display: flex; flex-direction: column; gap: 16px; }
+              .report-card {
+                display: block;
+                padding: 20px 24px;
+                background: #f8f9fb;
+                border: 2px solid #e1e4e8;
+                border-radius: 8px;
+                text-decoration: none;
+                color: #1e3c72;
+                transition: all 0.2s;
+              }
+              .report-card:hover {
+                background: #1e3c72;
+                color: white;
+                border-color: #1e3c72;
+                transform: translateY(-2px);
+              }
+              .report-card.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+              }
+              .report-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+              .report-desc { font-size: 13px; opacity: 0.8; }
+              .footer { margin-top: 32px; text-align: center; color: #999; font-size: 12px; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>be_Talent_TestTec - Test Reports</h1>
+              <p class="subtitle">Reports de execucao dos testes automatizados</p>
+              <div class="reports">
+                <a href="./api/" class="report-card">
+                  <div class="report-title">API Tests (Newman + Allure)</div>
+                  <div class="report-desc">Testes da collection restful-booker</div>
+                </a>
+                <a href="./web/" class="report-card">
+                  <div class="report-title">Web Tests (Playwright)</div>
+                  <div class="report-desc">Testes end-to-end da interface web</div>
+                </a>
+              </div>
+              <p class="footer">Atualizado automaticamente via GitHub Actions</p>
+            </div>
+          </body>
+          </html>
+          EOF
+          echo "Landing page gerada."
+
+      - name: Publicar landing page na raiz da gh-pages
+        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./landing-page
+          publish_branch: gh-pages
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'docs: atualiza landing page - run ${{ github.run_number }}'
+
       - name: Falhar job se houver testes quebrados
         if: steps.newman.outcome == 'failure'
         run: |
