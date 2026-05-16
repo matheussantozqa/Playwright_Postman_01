@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Outputs do Newman / Allure
+allure-results/
+allure-report/
+newman/
+
+# Arquivos temporarios
+*.log
+.DS_Store
+.env

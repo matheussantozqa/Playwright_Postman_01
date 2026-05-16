@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "0fd777cd-8987-4eef-b0de-e4fc3f1435b5",
+    "name": "restful-booker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51016405",
+    "description": "Suite de testes da API restful-booker.herokuapp.com - cobre auth, create, read, update e delete de reservas.\n\nFluxo encadeado: o token retornado pelo /auth e o bookingid retornado pelo POST /booking sao salvos como variaveis de collection e reutilizados nos requests seguintes."
+  },
+  "item": [
+    {
+      "name": "POST - Autenticacao Basica",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Tempo de resposta < 5s', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});",
+              "",
+              "pm.test('Body contem token', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json).to.have.property('token');",
+              "    pm.expect(json.token).to.be.a('string').and.not.empty;",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "if (json && json.token) {",
+              "    pm.collectionVariables.set('token', json.token);",
+              "    console.log('Token salvo na collection:', json.token);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/auth",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "auth"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST - Criar Reserva",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Content-Type application/json', function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "pm.test('Body retorna bookingid e booking', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json).to.have.property('bookingid');",
+              "    pm.expect(json).to.have.property('booking');",
+              "    pm.expect(json.bookingid).to.be.a('number');",
+              "});",
+              "",
+              "pm.test('Dados da reserva conferem com payload', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.booking.firstname).to.eql('Tester');",
+              "    pm.expect(json.booking.lastname).to.eql('Antoiene');",
+              "    pm.expect(json.booking.totalprice).to.eql(111);",
+              "    pm.expect(json.booking.depositpaid).to.eql(true);",
+              "    pm.expect(json.booking.bookingdates.checkin).to.eql('2018-01-01');",
+              "    pm.expect(json.booking.bookingdates.checkout).to.eql('2019-01-01');",
+              "    pm.expect(json.booking.additionalneeds).to.eql('Breakfast');",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "if (json && json.bookingid) {",
+              "    pm.collectionVariables.set('bookingid', json.bookingid);",
+              "    console.log('bookingid salvo na collection:', json.bookingid);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"firstname\" : \"Tester\",\n    \"lastname\" : \"Antoiene\",\n    \"totalprice\" : 111,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2018-01-01\",\n        \"checkout\" : \"2019-01-01\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/booking",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Leitura e Validacao de Reserva",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Content-Type application/json', function () {",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "",
+              "pm.test('Reserva retornada bate com a criada', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json).to.have.property('firstname', 'Tester');",
+              "    pm.expect(json).to.have.property('lastname', 'Antoiene');",
+              "    pm.expect(json).to.have.property('totalprice', 111);",
+              "    pm.expect(json).to.have.property('depositpaid', true);",
+              "    pm.expect(json.bookingdates).to.have.property('checkin', '2018-01-01');",
+              "    pm.expect(json.bookingdates).to.have.property('checkout', '2019-01-01');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/booking/{{bookingid}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "booking",
+            "{{bookingid}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT - Atualizacao de Reserva",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Reserva atualizada corretamente', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.firstname).to.eql('Brave');",
+              "    pm.expect(json.lastname).to.eql('Up');",
+              "    pm.expect(json.bookingdates.checkout).to.eql('2019-02-01');",
+              "    pm.expect(json.additionalneeds).to.eql('Dinner');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Cookie",
+            "value": "token={{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"firstname\" : \"Brave\",\n    \"lastname\" : \"Up\",\n    \"totalprice\" : 111,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2018-01-01\",\n        \"checkout\" : \"2019-02-01\"\n    },\n    \"additionalneeds\" : \"Dinner\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/booking/{{bookingid}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "booking",
+            "{{bookingid}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Exclusao de Reserva",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code 201 (delete OK no restful-booker)', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('Tempo de resposta < 5s', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Cookie",
+            "value": "token={{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/booking/{{bookingid}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "booking",
+            "{{bookingid}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "bookingid",
+      "value": ""
+    }
+  ]
+}

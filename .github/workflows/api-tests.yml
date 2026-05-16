@@ -1,0 +1,106 @@
+name: API Tests (Newman + Allure)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'postman_api/**'
+      - '.github/workflows/api-tests.yml'
+  workflow_dispatch:
+
+# Permissoes necessarias para o job de deploy publicar na branch gh-pages
+permissions:
+  contents: write
+
+jobs:
+  api-tests:
+    name: Run Newman + Generate Allure Report
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: postman_api
+
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: postman_api/package.json
+
+      - name: Setup Java (necessario para Allure CLI)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Instalar dependencias do projeto
+        run: npm install
+
+      - name: Instalar Allure CLI
+        run: npm install -g allure-commandline --save-dev
+
+      # Recupera o historico anterior do Allure (publicado em gh-pages) para
+      # que o report final tenha graficos de tendencia entre execucoes.
+      - name: Baixar historico anterior do Allure
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-checkout
+        continue-on-error: true
+
+      - name: Restaurar historico do Allure
+        run: |
+          mkdir -p allure-results
+          if [ -d "../gh-pages-checkout/api/history" ]; then
+            cp -r ../gh-pages-checkout/api/history allure-results/history
+            echo "Historico restaurado com sucesso."
+          else
+            echo "Nenhum historico anterior encontrado (primeira execucao)."
+          fi
+
+      - name: Rodar Newman (collection restful-booker)
+        id: newman
+        run: npm run test:ci
+        # Mesmo se algum teste falhar, queremos gerar e publicar o report
+        continue-on-error: true
+
+      - name: Gerar report Allure
+        if: always()
+        run: npm run report:generate
+
+      - name: Upload do report como artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-api
+          path: postman_api/allure-report
+          retention-days: 30
+
+      - name: Publicar report na branch gh-pages
+        if: always() && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: postman_api/allure-report
+          publish_branch: gh-pages
+          # Subdiretorio /api dentro da gh-pages - assim o report do Playwright
+          # podera ser publicado em /web sem conflito.
+          destination_dir: api
+          keep_files: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'docs(api): atualiza Allure report - run ${{ github.run_number }}'
+
+      # Se algum teste falhou, o job inteiro falha apos publicar o report,
+      # para que o status do commit reflita a realidade.
+      - name: Falhar job se houver testes quebrados
+        if: steps.newman.outcome == 'failure'
+        run: |
+          echo "Newman reportou falhas - veja o Allure report publicado em gh-pages."
+          exit 1
