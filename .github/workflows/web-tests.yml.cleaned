@@ -1,4 +1,4 @@
-name: API Tests - Restful Booker (Newman + Allure)
+name: Sauce Demo - Web (Playwright + Allure)
 
 on:
   push:
@@ -6,16 +6,16 @@ on:
       - main
       - master
     paths:
-      - 'postman_api/**'
-      - '.github/workflows/api-tests.yml'
+      - 'playwright_web/**'
+      - '.github/workflows/web-tests.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  api-tests:
-    name: Run Newman + Publish Allure Report
+  web-tests:
+    name: Run Playwright + Publish Allure Report
     runs-on: ubuntu-latest
 
     steps:
@@ -33,9 +33,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Instalar dependencias do projeto (inclui allure-commandline local)
-        working-directory: postman_api
+      - name: Instalar dependencias do projeto
+        working-directory: playwright_web
         run: npm install --no-audit --no-fund
+
+      - name: Instalar browsers do Playwright + system deps
+        working-directory: playwright_web
+        run: npx playwright install --with-deps chromium
 
       - name: Baixar historico anterior do Allure (para grafico de tendencia)
         uses: actions/checkout@v4
@@ -45,46 +49,44 @@ jobs:
         continue-on-error: true
 
       - name: Restaurar historico do Allure
-        working-directory: postman_api
+        working-directory: playwright_web
         run: |
           mkdir -p allure-results
-          if [ -d "../gh-pages-checkout/api/history" ]; then
-            cp -r ../gh-pages-checkout/api/history allure-results/history
+          if [ -d "../gh-pages-checkout/web/history" ]; then
+            cp -r ../gh-pages-checkout/web/history allure-results/history
             echo "Historico restaurado com sucesso."
           else
             echo "Nenhum historico anterior encontrado (primeira execucao)."
           fi
 
-      - name: Rodar Newman (collection restful-booker)
-        id: newman
-        working-directory: postman_api
+      - name: Rodar Playwright
+        id: playwright
+        working-directory: playwright_web
         run: npm run test:ci
         continue-on-error: true
 
       - name: Gerar report Allure
         if: always()
-        working-directory: postman_api
+        working-directory: playwright_web
         run: |
           if [ ! -d "allure-results" ] || [ -z "$(ls -A allure-results 2>/dev/null)" ]; then
-            echo "Nenhum resultado encontrado - gerando report vazio com mensagem."
+            echo "Nenhum resultado encontrado - gerando report vazio."
             mkdir -p allure-results
           fi
           npm run report:generate
 
-      - name: Preparar site para publicacao (landing + report)
+      - name: Preparar site para publicacao (landing + report web)
         if: always()
         run: |
-          mkdir -p site/api
-          # Copia o report Allure para site/api/
-          if [ -d "postman_api/allure-report" ]; then
-            cp -r postman_api/allure-report/. site/api/
-            echo "Report copiado para site/api/"
+          mkdir -p site/web
+          if [ -d "playwright_web/allure-report" ]; then
+            cp -r playwright_web/allure-report/. site/web/
+            echo "Report copiado para site/web/"
           else
             echo "ERRO: allure-report nao foi gerado."
             exit 1
           fi
-          # Gera landing page na raiz
-          cat > site/index.html <<'EOF'
+          cat > site/index.html <<'HTML_EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
           <head>
@@ -93,42 +95,13 @@ jobs:
             <title>be_Talent_TestTec - Test Reports</title>
             <style>
               * { box-sizing: border-box; margin: 0; padding: 0; }
-              body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-              }
-              .container {
-                background: white;
-                border-radius: 12px;
-                padding: 48px;
-                max-width: 640px;
-                width: 100%;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-              }
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+              .container { background: white; border-radius: 12px; padding: 48px; max-width: 640px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
               h1 { color: #1e3c72; margin-bottom: 8px; font-size: 28px; }
               .subtitle { color: #666; margin-bottom: 32px; font-size: 14px; }
               .reports { display: flex; flex-direction: column; gap: 16px; }
-              .report-card {
-                display: block;
-                padding: 20px 24px;
-                background: #f8f9fb;
-                border: 2px solid #e1e4e8;
-                border-radius: 8px;
-                text-decoration: none;
-                color: #1e3c72;
-                transition: all 0.2s;
-              }
-              .report-card:hover {
-                background: #1e3c72;
-                color: white;
-                border-color: #1e3c72;
-                transform: translateY(-2px);
-              }
+              .report-card { display: block; padding: 20px 24px; background: #f8f9fb; border: 2px solid #e1e4e8; border-radius: 8px; text-decoration: none; color: #1e3c72; transition: all 0.2s; }
+              .report-card:hover { background: #1e3c72; color: white; border-color: #1e3c72; transform: translateY(-2px); }
               .report-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
               .report-desc { font-size: 13px; opacity: 0.8; }
               .footer { margin-top: 32px; text-align: center; color: #999; font-size: 12px; }
@@ -152,19 +125,18 @@ jobs:
             </div>
           </body>
           </html>
-          EOF
-          # Arquivo .nojekyll evita que o GitHub Pages processe o site com Jekyll
+          HTML_EOF
           touch site/.nojekyll
-          echo "Site pronto para publicacao."
+          echo "Site pronto."
           ls -la site/
-          ls -la site/api/ | head -5
+          ls -la site/web/ | head -5
 
       - name: Upload do report como artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-api
-          path: site/api
+          name: allure-report-web
+          path: site/web
           retention-days: 30
 
       - name: Publicar site na branch gh-pages
@@ -177,10 +149,10 @@ jobs:
           keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'docs: atualiza Allure report API - run ${{ github.run_number }}'
+          commit_message: 'docs: atualiza Allure report Web - run ${{ github.run_number }}'
 
       - name: Falhar job se houver testes quebrados
-        if: steps.newman.outcome == 'failure'
+        if: steps.playwright.outcome == 'failure'
         run: |
-          echo "::error::Newman reportou falhas - veja o Allure report publicado em gh-pages."
+          echo "::error::Playwright reportou falhas - veja o Allure report publicado em gh-pages/web."
           exit 1
