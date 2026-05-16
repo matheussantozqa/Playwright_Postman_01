@@ -1,4 +1,4 @@
-### TC-UI-14 NAVEGAÇÃO ENTRE PÁGINAS (MENU LATERAL)
+### TC-UI-15 NAVEGAÇÃO ENTRE PÁGINAS (MENU LATERAL)
 
 **Description**
 Teste de Aceitação Funcional Manual focado em validar a navegação entre as principais seções do site através do menu lateral.
@@ -25,7 +25,7 @@ Então o estado da aplicação é resetado (ex: carrinho vazio, filtros padrão)
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://jam.dev/c/7792cd1d-0d94-46eb-8add-10c8f2cec33f
+**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-15.mp4
 
 **Environment:** Chrome - Opera
 
