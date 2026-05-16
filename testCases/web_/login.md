@@ -9,10 +9,10 @@ Teste de Aceitação Funcional Manual focado em validar o acesso à aplicação 
 
 **Expected results:**
 
-Dado que o usuário está na página de login
-Quando o usuário insere o username "standard_user" e a senha "secret_sauce"
-E clica no botão de Login
-Então a página de listagem de produtos carrega com sucesso sem erros
+- Dado que o usuário está na página de login
+- Quando o usuário insere o username "standard_user" e a senha "secret_sauce"
+- E clica no botão de Login
+- Então a página de listagem de produtos carrega com sucesso sem erros
 
 **Status:** Aprovado ✅
 
@@ -39,10 +39,10 @@ Teste de Aceitação Funcional Manual focado em validar a restrição de acesso 
 
 **Expected results:**
 
-Dado que o usuário está na página de login
-Quando o usuário insere o username "locked_out_user" e a senha "secret_sauce"
-E clica no botão de Login
-Então uma mensagem de erro indicando que o usuário está bloqueado é exibida na tela
+- Dado que o usuário está na página de login
+- Quando o usuário insere o username "locked_out_user" e a senha "secret_sauce"
+- E clica no botão de Login
+- Então uma mensagem de erro indicando que o usuário está bloqueado é exibida na tela
 
 **Status:** Aprovado ✅
 
@@ -69,14 +69,10 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 
 **Expected results:**
 
-Dado que o usuário está na página de login
-Quando o usuário clica no botão de Login sem preencher nenhum campo
-Então uma mensagem de erro "Epic sadface: Username is required" é exibida na tela
-
-Dado que o usuário está na página de login
-Quando o usuário insere o username "standard_user" e deixa o campo de senha vazio
-E clica no botão de Login
-Então uma mensagem de erro "Epic sadface: Password is required" é exibida na tela
+- Dado que o usuário está na página de login
+- Quando o usuário deixa o campo de username e senha vazio
+- E clica no botão de Login
+- Então uma mensagem de erro "Epic sadface: Password is required" é exibida na tela
 
 **Status:** Aprovado ✅
 
@@ -103,10 +99,10 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 
 **Expected results:**
 
-Dado que o usuário está na página de login
-Quando o usuário insere o username "standard_user" e uma senha inválida ("wrong_password")
-E clica no botão de Login
-Então uma mensagem de erro "Epic sadface: Username and password do not match any user in this service" é exibida na tela
+- Dado que o usuário está na página de login
+- Quando o usuário insere o username "standard_user" e uma senha inválida ("wrong_password")
+- E clica no botão de Login
+- Então uma mensagem de erro "Epic sadface: Username and password do not match any user in this service" é exibida na tela
 
 **Status:** Aprovado ✅
 
@@ -133,11 +129,11 @@ Teste de Aceitação Funcional Manual focado em validar o comportamento da aplic
 
 **Expected results:**
 
-Dado que o usuário está na página de login
-Quando o usuário insere um username inexistente 
-e senha correta
-E clica no botão de Login
-Então uma mensagem de erro "Epic sadface: Username and password do not match any user in this service" é exibida na tela
+- Dado que o usuário está na página de login
+- Quando o usuário insere um username inexistente 
+- e senha correta
+- E clica no botão de Login
+- Então uma mensagem de erro "Epic sadface: Username and password do not match any user in this service" é exibida na tela
 
 **Status:** Aprovado ✅
 
@@ -165,10 +161,10 @@ Teste de Aceitação Funcional Manual focado em validar a funcionalidade de ence
 
 **Expected results:**
 
-Dado que o usuário está logado na aplicação
-Quando o usuário clica no botão de menu (hambúrguer) no canto superior esquerdo
-E clica em "Logout" no menu lateral
-Então o usuário é redirecionado para a página de login com sucesso sem erros
+- Dado que o usuário está logado na aplicação
+- Quando o usuário clica no botão de menu (hambúrguer) no canto superior esquerdo
+- E clica em "Logout" no menu lateral
+- Então o usuário é redirecionado para a página de login com sucesso sem erros
 
 **Status:** Aprovado ✅
 
