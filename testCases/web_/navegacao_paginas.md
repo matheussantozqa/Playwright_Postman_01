@@ -10,18 +10,18 @@ Teste de Aceitação Funcional Manual focado em validar a navegação entre as p
 
 **Expected results:**
 
-Dado que o usuário está logado na aplicação
-Quando o usuário clica no botão de menu (hambúrguer) no canto superior esquerdo
-E clica em "All Items" no menu lateral
-Então a página de listagem de produtos carrega com sucesso
+- Dado que o usuário está logado na aplicação
+- Quando o usuário clica no botão de menu (hambúrguer) no canto superior esquerdo
+- E clica em "All Items" no menu lateral
+- Então a página de listagem de produtos carrega com sucesso
 
-Quando o usuário clica no botão de menu (hambúrguer)
-E clica em "About" no menu lateral
-Então a página institucional da Sauce Labs carrega com sucesso
+- Quando o usuário clica no botão de menu (hambúrguer)
+- E clica em "About" no menu lateral
+- Então a página institucional da Sauce Labs carrega com sucesso
 
-Quando o usuário clica no botão de menu (hambúrguer)
-E clica em "Reset App State" no menu lateral
-Então o estado da aplicação é resetado (ex: carrinho vazio, filtros padrão)
+- Quando o usuário clica no botão de menu (hambúrguer)
+- E clica em "Reset App State" no menu lateral
+- Então o estado da aplicação é resetado (ex: carrinho vazio, filtros padrão)
 
 **Status:** Aprovado ✅
 
