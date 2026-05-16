@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 /**
  * Pos-processa os arquivos *-result.json gerados pelo newman-reporter-allure
- * e injeta a label "suite" para que cada folder da collection aparece como uma
- * suite separada na aba "Suites" do Allure report.
+ * e PROMOVE cada folder da collection a parentSuite separada no Allure.
  *
- * O newman-reporter-allure@3.x so cria a label "parentSuite" (com o nome da
- * collection) e nao mapeia os folders para "suite" - por isso esse script.
+ * Antes (padrao do reporter):
+ *   parentSuite: "restful-booker" (todos os requests agrupados aqui)
  *
- * Mapeamento: nome do request -> nome da suite (folder).
- * Se voce adicionar/renomear requests, atualize o mapa abaixo.
+ * Depois (com esse script):
+ *   parentSuite = nome do folder (cada request num grupo separado)
+ *
+ * Se voce adicionar/renomear requests, atualize o SUITE_MAP abaixo.
  */
 const fs = require('fs');
 const path = require('path');
@@ -24,37 +25,39 @@ const SUITE_MAP = {
 const RESULTS_DIR = process.argv[2] || 'allure-results';
 
 if (!fs.existsSync(RESULTS_DIR)) {
-  console.error(`[inject-allure-suites] Diretorio ${RESULTS_DIR} nao existe.`);
+  console.error('[inject-allure-suites] Diretorio ' + RESULTS_DIR + ' nao existe.');
   process.exit(1);
 }
 
-const files = fs.readdirSync(RESULTS_DIR).filter(f => f.endsWith('-result.json'));
+const files = fs.readdirSync(RESULTS_DIR).filter(function(f) { return f.endsWith('-result.json'); });
 
 if (files.length === 0) {
-  console.warn(`[inject-allure-suites] Nenhum *-result.json encontrado em ${RESULTS_DIR}.`);
+  console.warn('[inject-allure-suites] Nenhum *-result.json encontrado em ' + RESULTS_DIR + '.');
   process.exit(0);
 }
 
-let updated = 0;
-let skipped = 0;
+var updated = 0;
+var skipped = 0;
 
-files.forEach(file => {
+files.forEach(function(file) {
   const filePath = path.join(RESULTS_DIR, file);
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const suite = SUITE_MAP[data.name];
+  const suiteName = SUITE_MAP[data.name];
 
-  if (!suite) {
-    console.warn(`[inject-allure-suites] Sem mapeamento para "${data.name}" - pulando.`);
+  if (!suiteName) {
+    console.warn('[inject-allure-suites] Sem mapeamento para "' + data.name + '" - pulando.');
     skipped++;
     return;
   }
 
-  data.labels = (data.labels || []).filter(l => l.name !== 'suite');
-  data.labels.push({ name: 'suite', value: suite });
+  data.labels = (data.labels || []).filter(function(l) {
+    return l.name !== 'parentSuite' && l.name !== 'suite' && l.name !== 'subSuite';
+  });
+  data.labels.push({ name: 'parentSuite', value: suiteName });
 
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-  console.log(`[inject-allure-suites] OK ${data.name}  ->  suite: ${suite}`);
+  console.log('[inject-allure-suites] OK ' + data.name + '  ->  parentSuite: ' + suiteName);
   updated++;
 });
 
-console.log(`\n[inject-allure-suites] Atualizados: ${updated} | Pulados: ${skipped}`);
+console.log('\n[inject-allure-suites] Atualizados: ' + updated + ' | Pulados: ' + skipped);
