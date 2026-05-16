@@ -25,7 +25,12 @@ Então o estado da aplicação é resetado (ex: carrinho vazio, filtros padrão)
 
 **Status:** Aprovado ✅
 
-**Evidence:** https://github.com/matheussantozqa/Be_Talent_TestTec_Web-API/releases/tag/v1.0.0/TC-UI-15.mp4
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/7a9fe8fa-6222-44d9-8938-505a6cd5935f
+
+
 
 **Environment:** Chrome - Opera
 
