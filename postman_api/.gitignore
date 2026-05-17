@@ -10,3 +10,25 @@ newman/
 *.log
 .DS_Store
 .env
+
+# dependencies
+node_modules/
+
+# allure
+allure-results/
+allure-report/
+allure-report-new/
+allure/
+
+# logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# env
+.env
+
+# cache
+.cache/
