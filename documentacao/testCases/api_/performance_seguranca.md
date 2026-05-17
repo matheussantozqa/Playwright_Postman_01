@@ -1,7 +1,5 @@
 ## PERFORMANCE — Restful Booker API
 
-> Verifica tempo de resposta, throughput e comportamento sob carga | **API**---
-
 ### PT-01 TEMPO DE RESPOSTA — AUTENTICAÇÃO
 **Description**
 Teste de Performance focado em validar o tempo de resposta do endpoint de autenticação da Restful Booker API sob condição de requisição única.
@@ -20,7 +18,9 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de autent
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+<img width="1920" height="1080" alt="PT-01" src="https://github.com/user-attachments/assets/af28bc9b-1b09-4d4f-8522-71ea72c88a3a" />
+
 
 **Environment:** API — Postman
 
@@ -44,8 +44,13 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de listag
 - E o body deve retornar uma lista com IDs de reservas
 
 **Status:** Aprovado ✅
-**Evidence:** —
+
+**Evidence:** 
+<img width="1920" height="1080" alt="PT-02" src="https://github.com/user-attachments/assets/16388838-045a-46d8-b27e-10c0eb04ea94" />
+
+
 **Environment:** API — Postman
+
 **Device:** Windows 11
 
 ---
@@ -66,8 +71,12 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de criaç
 - E o body deve retornar o objeto da reserva criada com `bookingid`
 
 **Status:** Aprovado ✅
-**Evidence:** —
+
+**Evidence:** 
+<img width="1920" height="1080" alt="PT-03" src="https://github.com/user-attachments/assets/455b38af-82aa-46aa-82de-d072a0539f44" />
+
 **Environment:** API — Postman
+
 **Device:** Windows 11
 
 ---
@@ -88,9 +97,11 @@ Teste de Performance focado em validar o comportamento do endpoint de listagem d
 - E p95 do tempo de resposta deve ser < 3000ms
 - E error rate deve ser < 5%
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
-**Evidence:** Aprovado ✅
+**Evidence:** 
+<img width="1920" height="1080" alt="PT-04" src="https://github.com/user-attachments/assets/51cceaf5-8892-45e7-9f08-47ed8152d622" />
+
 
 **Environment:** API — k6
 
@@ -116,7 +127,9 @@ Teste de Stress focado em identificar o ponto de quebra da Restful Booker API so
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+<img width="1920" height="1080" alt="PT-05" src="https://github.com/user-attachments/assets/2b2cc4a1-b13f-49a9-a588-196e8016a3f7" />
+
 
 **Environment:** API — k6
 
@@ -125,9 +138,6 @@ Teste de Stress focado em identificar o ponto de quebra da Restful Booker API so
 ---
 
 ## SEGURANÇA — Restful Booker API
-
-> Verifica autenticação, autorização e proteção contra ataques | **API**
-
 ---
 
 ### ST-01 ACESSO SEM AUTENTICAÇÃO DEVE SER NEGADO
@@ -147,7 +157,12 @@ Teste de Segurança focado em validar que operações de escrita (PUT, PATCH, DE
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/1d1767bc-19a5-495f-b02f-6d24cea89987
+
+
 
 **Environment:** API — Postman
 
@@ -172,7 +187,11 @@ Teste de Segurança focado em validar que a Restful Booker API rejeita tokens de
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/a0b46d89-ecbf-4bae-9d2e-c4170c6a6493
+
 
 **Environment:** API — Postman
 
@@ -200,7 +219,12 @@ Teste de Segurança focado em validar que o endpoint de busca da Restful Booker 
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/db0e7102-188b-4eab-b359-4e965d93fed9
+
+
 
 **Environment:** API — Postman
 
@@ -225,7 +249,12 @@ Teste de Segurança focado em validar que a Restful Booker API aplica rate limit
 
 **Status:** Aprovado ✅
 
-**Evidence:** —
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/f6437c5b-39de-49fd-a30e-214a2929d068
+
+
 
 **Environment:** API — Postman Runner
 
@@ -250,7 +279,12 @@ Teste de Segurança focado em validar que a Restful Booker API não expõe dados
 
 **Status:** Reprovado 🚨
 
-**Evidence:** —
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/bbc0fe8a-a96f-42f3-bcfc-75192b60df14
+
+
 
 **Environment:** API — Postman
 
