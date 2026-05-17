@@ -15,17 +15,20 @@ newman/
 node_modules/
 
 # allure
-allure-results/
+allure/
 allure-report/
 allure-report-new/
-allure/
+allure-results/
+postman_api/allure/
+postman_api/allure-report-new/
+postman_api/allure-results/
+node_modules/
+
+# test outputs
+test-results/
 
 # logs
 *.log
-
-# OS
-.DS_Store
-Thumbs.db
 
 # env
 .env

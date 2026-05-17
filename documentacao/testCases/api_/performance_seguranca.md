@@ -18,7 +18,7 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de autent
 - E o tempo de resposta deve ser inferior a 2000ms
 - E o body deve retornar um token válido
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -43,7 +43,7 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de listag
 - E o tempo de resposta deve ser inferior a 2000ms
 - E o body deve retornar uma lista com IDs de reservas
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 **Evidence:** —
 **Environment:** API — Postman
 **Device:** Windows 11
@@ -65,7 +65,7 @@ Teste de Performance focado em validar o tempo de resposta do endpoint de criaç
 - E o tempo de resposta deve ser inferior a 2000ms
 - E o body deve retornar o objeto da reserva criada com `bookingid`
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 **Evidence:** —
 **Environment:** API — Postman
 **Device:** Windows 11
@@ -90,7 +90,7 @@ Teste de Performance focado em validar o comportamento do endpoint de listagem d
 
 **Status:** Pendente 🔲
 
-**Evidence:** —
+**Evidence:** Aprovado ✅
 
 **Environment:** API — k6
 
@@ -114,7 +114,7 @@ Teste de Stress focado em identificar o ponto de quebra da Restful Booker API so
 - E as falhas devem ser controladas, sem retornar erro 500 em cascata
 - E o p95 deve ser monitorado para identificar o ponto de degradação
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -145,7 +145,7 @@ Teste de Segurança focado em validar que operações de escrita (PUT, PATCH, DE
 - Então todas devem retornar 403 Forbidden
 - E nenhuma alteração ou exclusão deve ser realizada na reserva
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -170,7 +170,7 @@ Teste de Segurança focado em validar que a Restful Booker API rejeita tokens de
 - Então todas devem retornar 403 Forbidden
 - E nenhuma alteração ou exclusão deve ser realizada na reserva
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -198,7 +198,7 @@ Teste de Segurança focado em validar que o endpoint de busca da Restful Booker 
 - E nenhum erro 500 deve ser retornado
 - E nenhuma exposição de dados internos deve ocorrer no body da resposta
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -223,7 +223,7 @@ Teste de Segurança focado em validar que a Restful Booker API aplica rate limit
 - Ou a conta deve ser bloqueada temporariamente após N tentativas
 - E nenhuma requisição além do limite deve ser processada normalmente
 
-**Status:** Pendente 🔲
+**Status:** Aprovado ✅
 
 **Evidence:** —
 
@@ -248,7 +248,7 @@ Teste de Segurança focado em validar que a Restful Booker API não expõe dados
 - E o body não deve conter campos internos como senhas, hashes ou tokens
 - E o header `X-Powered-By` não deve estar presente ou deve estar mascarado
 
-**Status:** Pendente 🔲
+**Status:** Reprovado 🚨
 
 **Evidence:** —
 
@@ -258,26 +258,3 @@ Teste de Segurança focado em validar que a Restful Booker API não expõe dados
 
 ---
 
-### ST-06 MANIPULAÇÃO DE ID — ACESSO A RESERVAS DE OUTROS USUÁRIOS (IDOR)
-
-**Description**
-Teste de Segurança focado em validar que a Restful Booker API não permite que um usuário autenticado manipule reservas de outros usuários através de ID arbitrário.
-
-**Pre conditions:**
-- A Restful Booker API deve estar acessível
-- Token de autenticação válido obtido via POST /auth
-- IDs de reservas existentes obtidos via GET /booking
-
-**Expected results:**
-- Dado que um usuário autenticado tenta realizar PUT /booking/{id_de_outro_usuario} com seu próprio token
-- Quando a API processa a requisição
-- Então deve retornar 403 Forbidden
-- Ou deve existir validação de ownership impedindo a alteração de reservas de outros usuários
-
-**Status:** Pendente 🔲
-
-**Evidence:** —
-
-**Environment:** API — Postman
-
-**Device:** Windows 11

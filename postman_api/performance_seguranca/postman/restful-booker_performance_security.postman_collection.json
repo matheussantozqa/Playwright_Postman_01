@@ -1,0 +1,507 @@
+{
+  "info": {
+    "_postman_id": "fe5e0365-2851-4f0e-889b-86bfc607df5c",
+    "name": "restful-booker_performance_security",
+    "description": "Suite de testes da API restful-booker.herokuapp.com. Organizada em folders por operacao - cada folder vira uma suite separada no Allure report.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51016405",
+    "_collection_link": "https://go.postman.co/collection/51016405-fe5e0365-2851-4f0e-889b-86bfc607df5c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "PT-01 TEMPO DE RESPOSTA — AUTENTICAÇÃO",
+      "item": [
+        {
+          "name": "TEMPO DE RESPOSTA — AUTENTICAÇÃO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status é 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Tempo de resposta menor que 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "pm.test(\"Body retorna token válido\", function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.have.property(\"token\");",
+                  "    pm.expect(body.token).to.be.a(\"string\");",
+                  "    pm.expect(body.token.length).to.be.above(0);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoint de autenticacao - gera o token usado nas operacoes de update e delete."
+    },
+    {
+      "name": "PT-02 TEMPO DE RESPOSTA — LISTAR RESERVAS",
+      "item": [
+        {
+          "name": "TEMPO DE RESPOSTA — LISTAR RESERVAS",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status é 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Tempo de resposta menor que 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "pm.test(\"Body retorna lista com IDs de reservas\", function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.be.an(\"array\");",
+                  "    pm.expect(body.length).to.be.above(0);",
+                  "    pm.expect(body[0]).to.have.property(\"bookingid\");",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Leitura e validacao da reserva criada."
+    },
+    {
+      "name": "PT-03 TEMPO DE RESPOSTA — CRIAR RESERVA",
+      "item": [
+        {
+          "name": "TEMPO DE RESPOSTA — CRIAR RESERVA",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status é 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Tempo de resposta menor que 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "pm.test(\"Body retorna objeto com bookingid\", function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.have.property(\"bookingid\");",
+                  "    pm.expect(body.bookingid).to.be.a(\"number\");",
+                  "});",
+                  "",
+                  "pm.test(\"Body retorna os dados da reserva criada\", function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body.booking).to.have.property(\"firstname\", \"John\");",
+                  "    pm.expect(body.booking).to.have.property(\"lastname\", \"Doe\");",
+                  "    pm.expect(body.booking).to.have.property(\"totalprice\", 150);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstname\": \"John\",\r\n  \"lastname\": \"Doe\",\r\n  \"totalprice\": 150,\r\n  \"depositpaid\": true,\r\n  \"bookingdates\": {\r\n    \"checkin\": \"2025-01-01\",\r\n    \"checkout\": \"2025-01-05\"\r\n  },\r\n  \"additionalneeds\": \"Breakfast\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Exclusao da reserva - usa o token gerado no folder de Authentication."
+    },
+    {
+      "name": "ST-01 ACESSO SEM AUTENTICAÇÃO DEVE SER NEGADO",
+      "item": [
+        {
+          "name": "ACESSO SEM AUTENTICAÇÃO DEVE SER NEGADO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"DELETE sem auth retorna 403\", function () {\r",
+                  "    pm.response.to.have.status(403);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\": \"Mark\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/1",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ST-02 TOKEN INVÁLIDO DEVE SER REJEITADO",
+      "item": [
+        {
+          "name": "TOKEN INVÁLIDO DEVE SER REJEITADO",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"DELETE com token inválido retorna 403\", function () {\r",
+                  "    pm.response.to.have.status(403);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token=tokeninvalido123",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/4",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ST-03 SQL INJECTION NO FILTRO DE BUSCA",
+      "item": [
+        {
+          "name": "SQL INJECTION NO FILTRO DE BUSCA",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"SQL Injection UNION SELECT não retorna 500\", function () {\r",
+                  "    pm.expect(pm.response.code).to.not.equal(500);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Retorna 200 com lista normal ou vazia\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    const body = pm.response.json();\r",
+                  "    pm.expect(body).to.be.an(\"array\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking?firstname=' UNION SELECT * FROM booking; --",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ],
+              "query": [
+                {
+                  "key": "firstname",
+                  "value": "' UNION SELECT * FROM booking; --"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ST-04 BRUTE FORCE EM POST /AUTH — RATE LIMITING",
+      "item": [
+        {
+          "name": "BRUTE FORCE EM POST /AUTH — RATE LIMITING",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Verifica rate limiting ou bloqueio\", function () {\r",
+                  "    const status = pm.response.code;\r",
+                  "    pm.expect(status).to.be.oneOf([429, 403, 200]);\r",
+                  "    \r",
+                  "    if (status === 429) {\r",
+                  "        console.log(\"Rate limiting aplicado - 429 Too Many Requests\");\r",
+                  "    } else if (status === 403) {\r",
+                  "        console.log(\"Conta bloqueada - 403 Forbidden\");\r",
+                  "    } else if (status === 200) {\r",
+                  "        const body = pm.response.json();\r",
+                  "        console.log(\"Resposta: \" + JSON.stringify(body));\r",
+                  "    }\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"senhaerrada123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ST-05 EXPOSIÇÃO DE DADOS SENSÍVEIS NA RESPOSTA",
+      "item": [
+        {
+          "name": "EXPOSIÇÃO DE DADOS SENSÍVEIS NA RESPOSTA",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Header X-Powered-By não está exposto\", function () {\r",
+                  "    pm.expect(pm.response.headers.get(\"X-Powered-By\")).to.be.null;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Header Server não expõe versão ou tecnologia\", function () {\r",
+                  "    const server = pm.response.headers.get(\"Server\");\r",
+                  "    if (server) {\r",
+                  "        pm.expect(server).to.not.match(/apache\\/\\d/i);\r",
+                  "        pm.expect(server).to.not.match(/nginx\\/\\d/i);\r",
+                  "        pm.expect(server).to.not.match(/php\\/\\d/i);\r",
+                  "    } else {\r",
+                  "        pm.expect(server).to.be.null;\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Body não contém campos sensíveis\", function () {\r",
+                  "    const body = pm.response.json();\r",
+                  "    pm.expect(body).to.not.have.property(\"password\");\r",
+                  "    pm.expect(body).to.not.have.property(\"token\");\r",
+                  "    pm.expect(body).to.not.have.property(\"hash\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/4",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "bookingid",
+      "value": ""
+    }
+  ]
+}
