@@ -16,8 +16,16 @@ Teste de Responsividade focado em validar a adaptação da tela de login do Sauc
 - E no desktop o formulário está centralizado com proporções adequadas
 
 **Status:** Aprovado ✅
-**Evidence:** —
+
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/2af0697e-be51-40d7-880e-91718f060062
+
+
+
 **Environment:** Chrome — DevTools — Window Resizer
+
 **Device:** Windows 11
 
 ---
@@ -40,8 +48,16 @@ Teste de Responsividade focado em validar a adaptação do grid de produtos do S
 - E o header com ícone de carrinho e menu hambúrguer está totalmente visível em todos os viewports
 
 **Status:** Aprovado ✅
-**Evidence:** —
+
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/ea34a45c-d26e-491d-99d7-2694d61a2f02
+
+
+
 **Environment:** Chrome — DevTools — Window Resizer
+
 **Device:** Windows 11
 
 ---
@@ -65,8 +81,16 @@ Teste de Responsividade focado em validar a adaptação da tela de detalhe de pr
 - E no desktop imagem e detalhes são exibidos lado a lado com espaçamento adequado
 
 **Status:** Reprovado 🚨
-**Evidence:** —
+
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/25dcf5e6-9aa0-4def-abce-39b860a30da8
+
+
+
 **Environment:** Chrome — DevTools — Window Resizer
+
 **Device:** Windows 11
 
 ---
@@ -92,8 +116,18 @@ Então a imagem de confirmação é redimensionada proporcionalmente; mensagem d
 E nenhuma tela apresenta scroll horizontal em qualquer viewport
 
 **Status:** Aprovado ✅
-**Evidence:** —
+
+**Evidence:** 
+
+
+https://github.com/user-attachments/assets/c80f97c1-b21a-44f7-92f1-4ac19af4c200
+
+
+
+
+
 **Environment:** Chrome — DevTools— Window Resizer
+
 **Device:** Windows 11
 
 ---
