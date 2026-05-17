@@ -1,9 +1,10 @@
 # Dependencias
 node_modules/
 
-# Outputs do Newman / Allure
+# Outputs do Newman / Allure (gerados)
 allure-results/
 allure-report/
+allure-report-new/
 newman/
 
 # Arquivos temporarios
@@ -11,29 +12,13 @@ newman/
 .DS_Store
 .env
 
-# dependencies
-node_modules/
-
-# allure
-allure/
-allure-report/
-allure-report-new/
-allure-results/
-postman_api/allure/
-postman_api/allure-report-new/
-postman_api/allure-results/
-node_modules/
-
 # test outputs
 test-results/
-
-# logs
-*.log
-
-# env
-.env
 
 # cache
 .cache/
 
 test-clean/node_modules
+
+# IMPORTANTE: NAO ignorar a pasta allure/ — ela contem os meta files
+# (categories.json, environment.properties, executor.json) usados pelo report.

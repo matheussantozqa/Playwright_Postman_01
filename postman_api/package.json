@@ -10,7 +10,7 @@
     "copy-meta": "node scripts/copy-allure-meta.js allure-results",
     "test": "npm run newman && npm run inject-suites && npm run copy-meta",
     "test:ci": "npm run newman:ci && npm run inject-suites && npm run copy-meta",
-    "report:generate": "allure generate allure-results --clean -o allure-report",
+    "report:generate": "npm run copy-meta && allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
     "clean": "rimraf allure-results allure-report"
   },
