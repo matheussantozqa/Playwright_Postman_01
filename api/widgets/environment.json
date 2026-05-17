@@ -1,1 +1,1 @@
-[{"values":["Be_Talent_TestTec_Web-API"],"name":"Projeto"},{"values":["API"],"name":"Camada"},{"values":["Newman + Allure"],"name":"Ferramenta"},{"values":["https://restful-booker.herokuapp.com"],"name":"Base.URL"},{"values":["20"],"name":"Node.Version"},{"values":["6.2.x"],"name":"Newman.Version"},{"values":["newman-reporter-allure@3.8.0"],"name":"Allure.Reporter"},{"values":["Ubuntu (GitHub Actions runner)"],"name":"SO"}]
+[]
