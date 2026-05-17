@@ -29,6 +29,11 @@ Ambas as requisições GET /booking e GET /booking/{id} retornam o header X-Powe
 **Evidence:**
 
 
+https://github.com/user-attachments/assets/fe9cdeaf-204a-483b-acd4-614f52f01218
+
+
+
+
 **Environment:** Chrome - Opera
 
 **Device:** Windows 11
