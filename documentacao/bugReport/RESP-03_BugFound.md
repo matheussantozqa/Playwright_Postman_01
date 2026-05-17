@@ -31,6 +31,11 @@ A Hero Section quando scrolamos para baixo nos dispositivos tablet e mobile, est
 **Evidence:**
 
 
+https://github.com/user-attachments/assets/2a8a1644-7a8c-4db7-9a6b-cb2bd6dada8b
+
+
+
+
 **Environment:** Chrome - Opera
 
 **Device:** Windows 11
