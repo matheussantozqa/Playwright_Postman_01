@@ -35,3 +35,5 @@ test-results/
 
 # cache
 .cache/
+
+test-clean/node_modules
