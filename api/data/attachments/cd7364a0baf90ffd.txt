@@ -1,0 +1,1 @@
+level: log, messages: Token salvo:,c05b7ea8d3dbb11
