@@ -7,9 +7,9 @@
 | Campo | Detalhes |
 | --- | --- |
 | Nome do Projeto | Be Talent Test Técnico — Sauce Demo & Restful-Booker |
-| Versão da Aplicação | 1.0 (Baseado nos reports) |
-| Data do Relatório | 18/05/2026 |
-| Autor | Manus AI (Baseado nos dados de Matheus Santos) |
+| Versão da Aplicação | 1.1  |
+| Data do Relatório | 16/05/2026 |
+| Autor | Matheus Santos |
 
 ---
 
