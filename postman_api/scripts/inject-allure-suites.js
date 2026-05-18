@@ -7,7 +7,7 @@
  *   - feature:     "Autenticacao" ou "Reservas" (nivel intermediario)
  *   - story:       nome do folder (nivel granular - aparece em Features by Stories)
  *   - severity:    "critical" para auth, "normal" para CRUD
- *   - owner:       "QA Team"
+ *   - owner:       "Matheus Santos"
  *   - tag:         "api", "smoke"
  *
  * MODO DINAMICO: le a collection e mapeia request -> folder automaticamente.
@@ -90,7 +90,7 @@ files.forEach(function(file) {
   data.labels.push({ name: 'feature',     value: feature });
   data.labels.push({ name: 'story',       value: folderName });
   data.labels.push({ name: 'severity',    value: severity });
-  data.labels.push({ name: 'owner',       value: 'QA Team' });
+  data.labels.push({ name: 'owner',       value: 'Matheus Santos' });
   data.labels.push({ name: 'tag',         value: 'api' });
   data.labels.push({ name: 'tag',         value: 'smoke' });
 

@@ -71,7 +71,7 @@ files.forEach(function(file) {
   data.labels.push({ name: 'feature',  value: feature });
   data.labels.push({ name: 'story',    value: specName });
   data.labels.push({ name: 'severity', value: severity });
-  data.labels.push({ name: 'owner',    value: 'QA Team' });
+  data.labels.push({ name: 'owner',    value: 'Matheus Santos' });
   data.labels.push({ name: 'tag',      value: 'web' });
   data.labels.push({ name: 'tag',      value: 'e2e' });
 
