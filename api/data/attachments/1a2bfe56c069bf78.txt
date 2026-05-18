@@ -1,0 +1,11 @@
+{
+    "firstname" : "Brave",
+    "lastname" : "Up",
+    "totalprice" : 111,
+    "depositpaid" : true,
+    "bookingdates" : {
+        "checkin" : "2018-01-01",
+        "checkout" : "2019-02-01"
+    },
+    "additionalneeds" : "Dinner"
+}
