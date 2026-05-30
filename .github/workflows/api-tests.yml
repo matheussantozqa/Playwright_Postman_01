@@ -134,7 +134,7 @@ jobs:
           </head>
           <body>
             <div class="container">
-              <h1>be_Talent_TestTec - Test Reports</h1>
+              <h1>Playwright_Postman_01 - Test Reports</h1>
               <p class="subtitle">Reports de execucao dos testes automatizados</p>
               <div class="reports">
                 <a href="./api/" class="report-card">
@@ -146,7 +146,7 @@ jobs:
                   <div class="report-desc">Testes end-to-end da interface web</div>
                 </a>
               </div>
-              <p class="footer">Atualizado automaticamente via GitHub Actions</p>
+              <p class="footer"></p>
             </div>
           </body>
           </html>
