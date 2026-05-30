@@ -1,5 +1,5 @@
 "BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","Sauce Demo Web","0","Filtros","4","0","filtro.spec.ts","0"
-"0","Sauce Demo Web","0","Navegacao","1","0","navegacao_paginas.spec.ts","0"
 "0","Sauce Demo Web","0","Login","6","0","login.spec.ts","0"
+"0","Sauce Demo Web","0","Navegacao","1","0","navegacao_paginas.spec.ts","0"
 "0","Sauce Demo Web","0","Fluxo de Compra","3","0","fluxo_compra.spec.ts","0"
+"0","Sauce Demo Web","0","Filtros","4","0","filtro.spec.ts","0"
