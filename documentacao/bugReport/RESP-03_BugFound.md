@@ -1,4 +1,4 @@
-###BUG_RESP-03 RESPONSIVIDADE NO DETALHE DO PRODUTO###
+***BUG_RESP-03 RESPONSIVIDADE NO DETALHE DO PRODUTO***
 
 **Description**
 Bug de UI identificado durante a execução do teste de responsividade ao validar o comportamento da aplicação ao utilizar a aba de detalhes de produto em diversos dispositivos: web - mobile e tablet.
