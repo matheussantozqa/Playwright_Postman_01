@@ -10,7 +10,3 @@ playwright_web/blob-report/
 playwright_web/.playwright/
 playwright_web/.env
 evidencias/
-
-# IMPORTANTE: NAO ignorar a pasta allure/ — ela contem os meta files
-# (categories.json, environment.properties, executor.json) que alimentam
-# os widgets Environment / Categories / Executors do relatorio Allure.
