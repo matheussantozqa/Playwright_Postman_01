@@ -121,7 +121,7 @@ jobs:
                   <div class="report-desc">Testes end-to-end da interface web</div>
                 </a>
               </div>
-              <p class="footer">Atualizado automaticamente via GitHub Actions</p>
+              <p class="footer"></p>
             </div>
           </body>
           </html>
