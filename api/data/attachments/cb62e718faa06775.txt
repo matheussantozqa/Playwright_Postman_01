@@ -1,0 +1,1 @@
+{"bookingid":4413,"booking":{"firstname":"Tester","lastname":"Antoiene","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2018-01-01","checkout":"2019-01-01"},"additionalneeds":"Breakfast"}}
