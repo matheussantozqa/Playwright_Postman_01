@@ -1,1 +1,1 @@
-{"reportName":"API - Newman + Allure","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":5,"unknown":0,"total":5},"time":{"start":1780153444086,"stop":1780153444296,"duration":210,"minDuration":18,"maxDuration":117,"sumDuration":198}}
+{"reportName":"API - Newman + Allure","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":5,"unknown":0,"total":5},"time":{"start":1780154124953,"stop":1780154125564,"duration":611,"minDuration":67,"maxDuration":312,"sumDuration":597}}
