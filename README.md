@@ -1,120 +1,121 @@
-# 💻 Automated Testing Project with Playwright and Postman
+# 💻 Projeto de Testes Automatizados com Playwright e Postman
 
-This repository contains an automated testing suite for the **Sauce Demo** web application (UI) using **Playwright** and for the **Restful-Booker** API using **Postman/Newman**. The project aims to ensure the quality and functionality of the main flows of both applications, with continuous integration via GitHub Actions and detailed reports with Allure Report.
+Este repositório contém uma suíte de testes automatizados para a aplicação web **Sauce Demo** (UI) utilizando **Playwright** e para a API **Restful-Booker** utilizando **Postman/Newman**. O projeto visa garantir a qualidade e a funcionalidade dos principais fluxos de ambas as aplicações, com integração contínua via GitHub Actions e relatórios detalhados com Allure Report.
 
 ---
 
-## 🧱 Project Structure
+## 🧱 Estrutura do Projeto
 
 ```
 .
-├── .github/                 # CI/CD Configurations (GitHub Actions)
-├── documentacao/            # Project documentation (test plans, test cases, bug reports, improvements)
-├── playwright_web/          # Web automation project with Playwright (contains tests and configurations)
-├── postman_api/             # API automation project with Postman/Newman (contains collections, environments, and scripts)
-├── .gitignore               # Files and directories ignored by Git
-└── README.md                # This file
+├── .github/                 # Configurações de CI/CD (GitHub Actions)
+├── documentacao/            # Documentação do projeto (planos de teste, casos de teste, relatórios de bugs, melhorias)
+├── playwright_web/          # Projeto de automação Web com Playwright (contém os testes e configurações)
+├── postman_api/             # Projeto de automação de API com Postman/Newman (contém coleções, ambientes e scripts)
+├── .gitignore               # Arquivos e diretórios ignorados pelo Git
+└── README.md                # Este arquivo
 ```
 
 ---
 
-## 🎯 Key Practices and Standards
+## 🎯 Práticas e Padrões Chave
 
-### 📌 Test Automation
+### 📌 Automação de Testes
 
-- **Playwright:** Used for UI test automation on the Sauce Demo application, covering authentication, product management, cart, and checkout flows.
-- **Postman/Newman:** Employed for API test automation on Restful-Booker, including CRUD for bookings, authentication, and endpoint validations. Postman collections and environments are available in JSON format in the `postman_api/` folder.
+- **Playwright:** Utilizado para automação de testes de UI na aplicação Sauce Demo, cobrindo fluxos de autenticação, gestão de produtos, carrinho e checkout.
+- **Postman/Newman:** Empregado para automação de testes de API na Restful-Booker, incluindo CRUD de reservas, autenticação e validações de endpoints. As coleções e ambientes do Postman estão disponíveis em formato JSON na pasta `postman_api/`.
 
-### 📌 Manual Tests
+### 📌 Testes Manuais
 
-- **Performance and Security:** Basic performance and security tests were manually executed for the Restful-Booker API, focusing on response time and access validation without a token.
-- **Responsiveness:** Responsiveness tests for the Sauce Demo UI were performed manually, using browser developer tools.
-- **Accessibility:** Due to time constraints, accessibility tests were not performed in this project.
+- **Performance e Segurança:** Testes básicos de performance e segurança foram executados manualmente para a API Restful-Booker, focando em tempo de resposta e validação de acesso sem token.
+- **Responsividade:** Testes de responsividade para a UI do Sauce Demo foram realizados manualmente, utilizando ferramentas de desenvolvedor do navegador.
+- **Acessibilidade:** Devido a restrições de tempo, os testes de acessibilidade não foram realizados neste projeto.
 
 ---
 
-## 🚀 Running Tests Locally
+## 🚀 Executando os Testes Localmente
 
-### Web Tests (Playwright)
+### Testes Web (Playwright)
 
-To run Playwright tests, follow the steps below:
+Para executar os testes Playwright, siga os passos abaixo:
 
 ```bash
-# Navigate to the Playwright directory
+# Navegue para o diretório do Playwright
 cd playwright_web
 
-# Install dependencies
+# Instale as dependências
 npm install
 
-# Run all tests in headless mode
+# Execute todos os testes em modo headless
 npx playwright test
 
-# Run individual tests
-example: npx playwright test tests/login.spec.ts (file name)
+# Rode testes separados
+exemplo: npx playwright test tests/login.spec.ts (nome do arquivo)
 
-# Run tests in UI mode (with visible browser)
+# Execute os testes em modo UI (com navegador visível)
 npx playwright test --ui
 
-# Generate and open the Allure report
+# Gere e abra o relatório Allure
 npx playwright test --reporter=line,allure-playwright
 npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 ```
 
-### API Tests (Postman/Newman)
+### Testes de API (Postman/Newman)
 
-To run API tests, you have two options:
+Para executar os testes de API, você tem duas opções:
 
-#### 1. Via Postman App (Recommended for manual execution and development)
+#### 1. Via Postman App (Recomendado para execução manual e desenvolvimento)
 
-1.  **Import collections and environments:** In the `postman_api/` folder, you will find the `restful-booker.postman_collection.json` and `restful-booker.postman_environment.json` files. Import them into your Postman application.
-2.  **Run tests:** Select the `Restful-Booker` collection in Postman, choose the `Restful-Booker` environment, and run the tests directly from the Postman interface. You can use the Collection Runner for a more organized execution.
+1.  **Importe as coleções e ambientes:** Na pasta `postman_api/`, você encontrará os arquivos `restful-booker.postman_collection.json` e `restful-booker.postman_environment.json`. Importe-os para o seu aplicativo Postman.
+2.  **Execute os testes:** Selecione a coleção `Restful-Booker` no Postman, escolha o ambiente `Restful-Booker` e execute os testes diretamente pela interface do Postman. Você pode usar o Collection Runner para uma execução mais organizada.
 
-#### 2. Via Newman (Command Line and CI/CD)
+#### 2. Via Newman (Linha de Comando e CI/CD)
 
-For command-line execution (useful for CI/CD integration), follow these steps:
+Para execução via linha de comando (útil para integração CI/CD), siga os passos:
 
 ```bash
-# Navigate to the Postman directory
+# Navegue para o diretório do Postman
 cd postman_api
 
-# Install dependencies (Newman and Allure Reporter)
+# Instale as dependências (Newman e Allure Reporter)
 npm install
 
-# Run the Postman collection and generate the Allure report
+# Execute a coleção Postman e gere o relatório Allure
 npx newman run restful-booker.postman_collection.json -e restful-booker.postman_environment.json -r cli,htmlextra,allure --reporter-allure-export allure-results
 
-# Open the Allure report
+# Abra o relatório Allure
 npx allure generate allure-results --clean -o allure-report
 npx allure open allure-report
 ```
 
 ---
 
-## 🌐 Continuous Integration (CI/CD) with GitHub Actions and Allure Report
+## 🌐 Integração Contínua (CI/CD) com GitHub Actions e Allure Report
 
-This project uses **GitHub Actions** to automate the execution of UI and API tests. With each `push` to the `main` branch, CI/CD workflows are triggered, running Playwright and Postman tests.
+Este projeto utiliza **GitHub Actions** para automatizar a execução dos testes de UI e API. A cada `push` na branch `main`, os workflows de CI/CD são acionados, executando os testes Playwright e Postman.
 
-The test results are processed by **Allure Report**, which generates a detailed HTML report. This report is then automatically published via **GitHub Pages**, allowing for easy and centralized viewing of the results of both test suites (UI and API) in a single HTML.
+Os resultados dos testes são processados pelo **Allure Report**, que gera um relatório HTML detalhado. Este relatório é então publicado automaticamente via **GitHub Pages**, permitindo uma visualização fácil e centralizada dos resultados de ambas as suítes de testes (UI e API) em um único HTML.
 
-You can access the latest Allure report via the link:
+Você pode acessar o relatório Allure mais recente através do link:
 [https://matheussantozqa.github.io/Be_Talent_TestTec_Web-API/](https://matheussantozqa.github.io/Be_Talent_TestTec_Web-API/)
 
 ---
 
-## 🔧 Tools Used
+## 🔧 Ferramentas Utilizadas
 
-- **Playwright:** Framework for End-to-End (E2E) test automation for web applications.
-- **Postman:** Tool for API testing and development.
-- **Newman:** Command-line runner for Postman collections.
-- **Allure Report:** Framework for generating interactive and detailed test reports.
-- **GitHub Actions:** CI/CD platform for workflow automation.
-- **GitHub Pages:** Hosting service for static websites, used to publish Allure reports.
+- **Playwright:** Framework para automação de testes End-to-End (E2E) para aplicações web.
+- **Postman:** Ferramenta para testes e desenvolvimento de APIs.
+- **Newman:** Executor de linha de comando para coleções Postman.
+- **Allure Report:** Framework para geração de relatórios de testes interativos e detalhados.
+- **GitHub Actions:** Plataforma de CI/CD para automação de workflows.
+- **GitHub Pages:** Serviço de hospedagem para sites estáticos, utilizado para publicar os relatórios Allure.
+- **Markdown:** Linguagem de marcação para documentação.
 
 ---
 
-## 📌 Notes
+## 📌 Notas
 
-- Complete documentation, including detailed test cases and bug reports with evidence, can be found in the `documentacao/` folder.
-- Selectors and page elements for Playwright tests are organized to facilitate maintenance.
-- Postman collections and environments are in JSON format in the `postman_api/` folder for easy access and import.
+- A documentação completa, incluindo casos de teste detalhados e relatórios de bugs com evidências, pode ser encontrada na pasta `documentacao/`.
+- Os seletores e elementos de página para os testes Playwright são organizados de forma a facilitar a manutenção.
+- As coleções e ambientes do Postman estão em formato JSON na pasta `postman_api/` para fácil acesso e importação.
