@@ -1,0 +1,8 @@
+pm.test('Status code 200', function () { pm.response.to.have.status(200); });
+pm.test('Reserva atualizada corretamente', function () {
+  const json = pm.response.json();
+  pm.expect(json.firstname).to.eql('Brave');
+  pm.expect(json.lastname).to.eql('Up');
+  pm.expect(json.bookingdates.checkout).to.eql('2019-02-01');
+  pm.expect(json.additionalneeds).to.eql('Dinner');
+});
