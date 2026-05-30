@@ -1,1 +1,1 @@
-{"reportName":"Web - Playwright + Allure","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":14,"unknown":0,"total":14},"time":{"start":1779065617256,"stop":1779065629168,"duration":11912,"minDuration":334,"maxDuration":3966,"sumDuration":10920}}
+{"reportName":"Web - Playwright + Allure","testRuns":[],"statistic":{"failed":0,"broken":0,"skipped":0,"passed":14,"unknown":0,"total":14},"time":{"start":1780152903510,"stop":1780152917801,"duration":14291,"minDuration":486,"maxDuration":4051,"sumDuration":12779}}
