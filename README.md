@@ -109,8 +109,6 @@ Você pode acessar o relatório Allure mais recente através do link:
 - **Newman:** Executor de linha de comando para coleções Postman.
 - **Allure Report:** Framework para geração de relatórios de testes interativos e detalhados.
 - **GitHub Actions:** Plataforma de CI/CD para automação de workflows.
-- **GitHub Pages:** Serviço de hospedagem para sites estáticos, utilizado para publicar os relatórios Allure.
-- **Markdown:** Linguagem de marcação para documentação.
 
 ---
 
